@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Engineering Portfolio</title>
+  <title>Bodie Orni — Engineering Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -36,289 +36,335 @@
       font-family: 'DM Sans', sans-serif;
       background: var(--bg);
       color: var(--text);
-      max-width: 760px;
+      max-width: 800px;
       margin: 0 auto;
-      padding: 0 2rem 4rem;
+      padding: 0 2rem 6rem;
     }
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 0 2rem;
-      border-bottom: 0.5px solid var(--border);
-      margin-bottom: 3rem;
-    }
-
-    .nav-name {
-      font-family: 'DM Mono', monospace;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 13px;
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-weight: 400;
-      transition: color 0.15s;
-    }
-
+    /* NAV */
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0 2rem; border-bottom: 0.5px solid var(--border); margin-bottom: 3rem; }
+    .nav-name { font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); text-decoration: none; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { font-size: 13px; color: var(--text-secondary); text-decoration: none; font-weight: 400; transition: color 0.15s; }
     .nav-links a:hover { color: var(--text); }
 
-    .hero { margin-bottom: 4rem; }
-
-    .hero-tag {
-      font-family: 'DM Mono', monospace;
-      font-size: 12px;
-      color: var(--text-tertiary);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-
-    .hero-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 52px;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-      color: var(--text);
-    }
-
-    .hero-title em {
-      font-style: italic;
-      color: var(--text-secondary);
-    }
-
-    .hero-bio {
-      font-size: 16px;
-      line-height: 1.7;
-      color: var(--text-secondary);
-      max-width: 500px;
-      margin-bottom: 2rem;
-      font-weight: 300;
-    }
-
-    .hero-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      border: 0.5px solid var(--border-strong);
-      border-radius: 2px;
-      font-size: 13px;
-      font-family: 'DM Mono', monospace;
-      text-decoration: none;
-      color: var(--text);
-      cursor: pointer;
-      background: transparent;
-      transition: background 0.15s;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-    }
-
+    /* HERO */
+    .hero { margin-bottom: 5rem; }
+    .hero-name { font-family: 'DM Serif Display', serif; font-size: 40px; line-height: 1.1; margin-bottom: 1.25rem; }
+    .hero-bio { font-size: 16px; line-height: 1.75; color: var(--text-secondary); max-width: 560px; margin-bottom: 0.75rem; font-weight: 300; }
+    .hero-meta { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text-tertiary); margin-bottom: 2rem; }
+    .hero-meta span { margin-right: 1.5rem; }
+    .hero-ctas { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .hero-cta { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border: 0.5px solid var(--border-strong); border-radius: 2px; font-size: 13px; font-family: 'DM Mono', monospace; text-decoration: none; color: var(--text); background: transparent; transition: background 0.15s; font-weight: 500; letter-spacing: 0.04em; }
     .hero-cta:hover { background: var(--bg-secondary); }
 
-    .section-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-tertiary);
-      margin-bottom: 1.5rem;
-    }
+    /* SECTION LABEL */
+    .section-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 1.5rem; }
 
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 1px;
-      border: 0.5px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      margin-bottom: 4rem;
-      background: var(--border);
-    }
+    /* EDU STRIP */
+    .edu-strip { border: 0.5px solid var(--border); border-radius: 8px; padding: 1.25rem 1.5rem; margin-bottom: 5rem; background: var(--bg-secondary); }
+    .edu-main { font-size: 14px; font-weight: 500; margin-bottom: 3px; }
+    .edu-sub { font-size: 13px; color: var(--text-secondary); font-weight: 300; }
+    .edu-sub + .edu-sub { margin-top: 3px; }
 
-    .skill-cell {
-      padding: 1.25rem 1rem;
-      background: var(--bg);
-      transition: background 0.15s;
-    }
+    /* PROJECTS */
+    .projects { margin-bottom: 5rem; }
+    .project-card { border-top: 0.5px solid var(--border); padding: 2.5rem 0; }
+    .project-card:last-child { border-bottom: 0.5px solid var(--border); }
+    .proj-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1.25rem; }
+    .proj-num { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-tertiary); margin-bottom: 6px; }
+    .proj-title { font-family: 'DM Serif Display', serif; font-size: 28px; line-height: 1.15; margin-bottom: 0.5rem; }
+    .proj-summary { font-size: 13px; color: var(--text-tertiary); font-family: 'DM Mono', monospace; }
+    .proj-tags { display: flex; flex-wrap: wrap; gap: 4px; justify-content: flex-end; flex-shrink: 0; max-width: 185px; }
+    .tag { font-family: 'DM Mono', monospace; font-size: 10px; padding: 3px 8px; border: 0.5px solid var(--border); border-radius: 2px; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; }
+    .proj-body { font-size: 15px; line-height: 1.75; color: var(--text-secondary); font-weight: 300; margin-bottom: 1.25rem; }
+    .proj-body p + p { margin-top: 1rem; }
+    .proj-link { display: inline-flex; align-items: center; gap: 6px; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-tertiary); text-decoration: none; border: 0.5px solid var(--border); border-radius: 2px; padding: 4px 10px; transition: color 0.15s, border-color 0.15s; }
+    .proj-link:hover { color: var(--text); border-color: var(--border-strong); }
 
+    /* STATUS BADGE */
+    .status-badge { display: inline-flex; align-items: center; gap: 5px; font-family: 'DM Mono', monospace; font-size: 10px; padding: 3px 8px; border-radius: 2px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1rem; }
+    .status-badge.active { border: 0.5px solid rgba(30,160,80,0.35); color: #2a9a55; background: rgba(30,160,80,0.07); }
+    .status-badge.wip { border: 0.5px solid rgba(180,130,0,0.35); color: #9a7a10; background: rgba(180,130,0,0.07); }
+    @media (prefers-color-scheme: dark) {
+      .status-badge.active { color: #4ec97a; background: rgba(30,160,80,0.12); }
+      .status-badge.wip { color: #d4a820; background: rgba(180,130,0,0.12); }
+    }
+    .dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+
+    /* IMAGE GRID — only shown when real images are present */
+    .img-row { display: grid; gap: 8px; margin: 1.5rem 0; }
+    .img-row.cols-2 { grid-template-columns: 1fr 1fr; }
+    .img-row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .img-wrap { border-radius: 4px; overflow: hidden; border: 0.5px solid var(--border); }
+    .img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .img-placeholder { border-radius: 4px; border: 0.5px dashed var(--border-strong); background: var(--bg-secondary); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1rem; text-align: center; min-height: 180px; }
+    .placeholder-icon { font-size: 22px; margin-bottom: 0.5rem; opacity: 0.2; }
+    .placeholder-text { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-tertiary); letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.6; }
+
+    /* RESUME */
+    .resume-strip { display: flex; justify-content: space-between; align-items: center; border: 0.5px solid var(--border); border-radius: 8px; padding: 1.25rem 1.5rem; margin-bottom: 2rem; background: var(--bg-secondary); }
+    @media (max-width: 560px) { .resume-strip { flex-direction: column; align-items: flex-start; gap: 1rem; } }
+
+    /* EDU */
+    .edu-strip { border: 0.5px solid var(--border); border-radius: 8px; padding: 1.25rem 1.5rem; margin-bottom: 2rem; background: var(--bg-secondary); }
+    .edu-main { font-size: 14px; font-weight: 500; margin-bottom: 3px; }
+    .edu-sub { font-size: 13px; color: var(--text-secondary); font-weight: 300; }
+    .edu-sub + .edu-sub { margin-top: 3px; }
+
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; border: 0.5px solid var(--border); border-radius: 8px; overflow: hidden; margin-bottom: 5rem; background: var(--border); }
+    .skill-cell { padding: 1.25rem 1rem; background: var(--bg); transition: background 0.15s; }
     .skill-cell:hover { background: var(--bg-secondary); }
+    .skill-name { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
+    .skill-sub { font-size: 12px; color: var(--text-tertiary); font-family: 'DM Mono', monospace; }
 
-    .skill-name {
-      font-size: 13px;
-      font-weight: 500;
-      margin-bottom: 4px;
-    }
+    /* SMALLER PROJECTS */
+    .mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; border: 0.5px solid var(--border); border-radius: 8px; overflow: hidden; margin-bottom: 5rem; background: var(--border); }
+    .mini-cell { padding: 1.25rem 1rem; background: var(--bg); transition: background 0.15s; }
+    .mini-cell:hover { background: var(--bg-secondary); }
+    .mini-title { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
+    .mini-desc { font-size: 12px; color: var(--text-tertiary); font-weight: 300; line-height: 1.5; }
 
-    .skill-sub {
-      font-size: 12px;
-      color: var(--text-tertiary);
-      font-family: 'DM Mono', monospace;
-    }
-
-    .projects { margin-bottom: 4rem; }
-
-    .project-item {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: start;
-      gap: 1rem;
-      padding: 1.5rem 0;
-      border-top: 0.5px solid var(--border);
-      transition: opacity 0.15s;
-    }
-
-    .project-item:last-child { border-bottom: 0.5px solid var(--border); }
-    .project-item:hover { opacity: 0.7; }
-
-    .proj-num {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--text-tertiary);
-      margin-bottom: 6px;
-    }
-
-    .proj-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 22px;
-      margin-bottom: 6px;
-    }
-
-    .proj-desc {
-      font-size: 14px;
-      color: var(--text-secondary);
-      font-weight: 300;
-      line-height: 1.6;
-    }
-
-    .proj-tags {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 4px;
-      flex-shrink: 0;
-    }
-
-    .tag {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      padding: 3px 8px;
-      border: 0.5px solid var(--border);
-      border-radius: 2px;
-      color: var(--text-tertiary);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    .contact-strip {
-      padding: 2rem 0;
-      border-top: 0.5px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .contact-line {
-      font-size: 14px;
-      color: var(--text-secondary);
-      font-weight: 300;
-    }
-
-    .contact-links {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .contact-links a {
-      font-family: 'DM Mono', monospace;
-      font-size: 12px;
-      color: var(--text-secondary);
-      text-decoration: none;
-      letter-spacing: 0.06em;
-    }
-
+    /* CONTACT */
+    .contact-strip { padding: 2rem 0; border-top: 0.5px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .contact-line { font-size: 14px; color: var(--text-secondary); font-weight: 300; }
+    .contact-links { display: flex; gap: 1.5rem; }
+    .contact-links a { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text-secondary); text-decoration: none; letter-spacing: 0.06em; }
     .contact-links a:hover { color: var(--text); }
 
-    @media (max-width: 520px) {
-      .hero-title { font-size: 36px; }
+    @media (max-width: 560px) {
+      .hero-title { font-size: 38px; }
+      .proj-header { flex-direction: column; }
+      .proj-tags { justify-content: flex-start; max-width: 100%; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .mini-grid { grid-template-columns: repeat(2, 1fr); }
       .contact-strip { flex-direction: column; gap: 1rem; align-items: flex-start; }
-      .project-item { grid-template-columns: 1fr; }
-      .proj-tags { flex-direction: row; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <span class="nav-name">J. Engineer</span>
+    <a class="nav-name" href="#">Bodie Orni</a>
     <ul class="nav-links">
-      <li><a href="#work">Work</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="resume.pdf">Resume</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#smaller">More</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <section class="hero" id="about">
-    <p class="hero-tag">Software / Systems Engineer</p>
-    <h1 class="hero-title">Building things<br><em>that actually work.</em></h1>
-    <p class="hero-bio">Placeholder bio — focused on clean systems, reliable infrastructure, and engineering that ships. Based somewhere, working on everything.</p>
-    <a class="hero-cta" href="mailto:you@example.com">Get in touch →</a>
+  <!-- HERO -->
+  <section class="hero">
+    <h1 class="hero-name">Bodie Orni</h1>
+    <p class="hero-bio">Mechanical engineering student with a focus on robotics and controls. I work across the full stack of a project — designing mechanisms, integrating components, and writing the software myself. Started building robots in my basement before college, which is where I picked up ROS. Currently working in ROS2, Python, and SolidWorks.</p>
+    <p class="hero-meta">
+      <span>Cal Poly SLO — B.S. Mechanical Engineering</span>
+      <span>Expected June 2028</span>
+    </p>
+    <div class="hero-ctas">
+      <a class="hero-cta" href="mailto:borni@calpoly.edu">borni@calpoly.edu →</a>
+      <a class="hero-cta" href="https://github.com/Torni124" target="_blank">GitHub →</a>
+      <a class="hero-cta" href="https://www.linkedin.com/in/bodie-orni/" target="_blank">LinkedIn →</a>
+    </div>
   </section>
 
-  <div class="section-label">Skills</div>
-  <div class="skills-grid">
-    <div class="skill-cell"><div class="skill-name">Backend</div><div class="skill-sub">Python · Go · Node</div></div>
-    <div class="skill-cell"><div class="skill-name">Frontend</div><div class="skill-sub">React · TypeScript</div></div>
-    <div class="skill-cell"><div class="skill-name">Infrastructure</div><div class="skill-sub">AWS · Docker · K8s</div></div>
-    <div class="skill-cell"><div class="skill-name">Data</div><div class="skill-sub">SQL · Postgres · ETL</div></div>
+  <!-- PROJECTS -->
+  <section class="projects" id="projects">
+    <div class="section-label">Selected projects</div>
+
+    <!-- FOOTPATH DETECTION -->
+    <div class="project-card">
+      <div class="proj-header">
+        <div>
+          <div class="proj-num">01</div>
+          <div class="proj-title">Footpath Detection<br>Vision Model</div>
+          <div class="proj-summary">Semantic segmentation for autonomous trail navigation</div>
+        </div>
+        <div class="proj-tags">
+          <span class="tag">PyTorch</span><span class="tag">Segmentation</span><span class="tag">Python</span><span class="tag">CV</span>
+        </div>
+      </div>
+      <div class="status-badge active"><div class="dot"></div> Active</div>
+      <div class="img-row cols-3">
+        <div class="img-placeholder"><div class="placeholder-icon">🛤️</div><div class="placeholder-text">Replace with input image</div></div>
+        <div class="img-placeholder"><div class="placeholder-icon">✅</div><div class="placeholder-text">Replace with ground truth overlay</div></div>
+        <div class="img-placeholder"><div class="placeholder-icon">🔮</div><div class="placeholder-text">Replace with prediction overlay</div></div>
+      </div>
+      <div class="proj-body">
+        <p>A segmentation system for identifying footpaths in trail imagery, built entirely on self-recorded and annotated data. The architecture uses a lightweight classifier to route images to specialized segmentation models trained on different trail types — currently two models covering forest and dirt trails, with more planned. This approach handles variation across trail environments better than a single general model would. Currently tracking loss, mean IoU, and Dice coefficient across ~450 annotated images, with the dataset actively expanding.</p>
+        <p>Intended for deployment on a Raspberry Pi 5 with an accelerator shield, interfacing with a PX4 flight controller for autonomous trail navigation — currently a design goal rather than an active build. A Discord bot is set up for running quick inference tests without a local environment.</p>
+      </div>
+      <a class="proj-link" href="https://github.com/Torni124/PathModelTrainer" target="_blank">github.com/Torni124/PathModelTrainer ↗</a>
+    </div>
+
+    <!-- ROBOTIC ARM -->
+    <div class="project-card">
+      <div class="proj-header">
+        <div>
+          <div class="proj-num">02</div>
+          <div class="proj-title">5-DOF Robotic Arm</div>
+          <div class="proj-summary">Custom ROS2 control system — V2 active</div>
+        </div>
+        <div class="proj-tags">
+          <span class="tag">ROS2</span><span class="tag">Python</span><span class="tag">Raspberry Pi</span><span class="tag">IK</span>
+        </div>
+      </div>
+      <div class="status-badge wip"><div class="dot"></div> On hold</div>
+      <div class="img-row cols-2">
+        <div class="img-placeholder"><div class="placeholder-icon">🦾</div><div class="placeholder-text">Replace with V2 arm photo / CAD</div></div>
+        <div class="img-placeholder"><div class="placeholder-icon">🖥️</div><div class="placeholder-text">Replace with ROS diagram or terminal screenshot</div></div>
+      </div>
+      <div class="proj-body">
+        <p>A 5-DOF robotic arm built on the open-source Kaidu arm design, driven by stepper motors with planetary gearboxes and controlled via a Raspberry Pi and Arduino. V2 is functional but the gearboxes are slipping — V3 will be a custom mechanical redesign addressing these issues rather than building on the base Kaidu design.</p>
+        <p>The ROS2 control system runs on a laptop and handles remote control via RViz interactive markers: a target pose is published, inverse kinematics are solved, and the resulting joint commands are sent over a socket to the Pi, which converts them to motor steps. Future work includes a camera mounted on the rotating wrist section, providing a direct view of the claw for autonomous grasping.</p>
+      </div>
+      <a class="proj-link" href="https://github.com/Torni124/ARM-V2" target="_blank">github.com/Torni124/ARM-V2 ↗</a>
+    </div>
+
+    <!-- LINEAR ACTUATOR -->
+    <div class="project-card">
+      <div class="proj-header">
+        <div>
+          <div class="proj-num">03</div>
+          <div class="proj-title">3D Printed<br>Linear Actuator</div>
+          <div class="proj-summary">Custom mechanical actuator design</div>
+        </div>
+        <div class="proj-tags">
+          <span class="tag">Mechanical</span><span class="tag">CAD</span><span class="tag">3D Print</span>
+        </div>
+      </div>
+      <div class="status-badge active"><div class="dot"></div> Active</div>
+      <div class="img-row cols-2">
+        <div class="img-placeholder"><div class="placeholder-icon">📐</div><div class="placeholder-text">Replace with CAD render</div></div>
+        <div class="img-placeholder"><div class="placeholder-icon">🔩</div><div class="placeholder-text">Replace with physical prototype photo</div></div>
+      </div>
+      <div class="proj-body">
+        <p>A low-cost, mostly 3D printed lead screw linear actuator designed to be rail-mounted and produced in quantity. Developed out of a need for a large number of actuators for another project, with cost minimization as the primary design goal. Built around a NEMA 17 stepper motor for prototyping, with a planned switch to a DC servo motor for higher torque at speed.</p>
+      </div>
+    </div>
+
+    <!-- 5-BAR LINKAGE -->
+    <div class="project-card">
+      <div class="proj-header">
+        <div>
+          <div class="proj-num">04</div>
+          <div class="proj-title">5-Bar Linkage<br>Drawing Machine</div>
+          <div class="proj-summary">Image-to-drawing plotter via inverse kinematics</div>
+        </div>
+        <div class="proj-tags">
+          <span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">MATLAB</span><span class="tag">IK</span><span class="tag">3D Print</span>
+        </div>
+      </div>
+      <div class="img-row cols-3">
+        <div class="img-placeholder"><div class="placeholder-icon">🖊️</div><div class="placeholder-text">Replace with physical arm photo</div></div>
+        <div class="img-placeholder"><div class="placeholder-icon">🌲</div><div class="placeholder-text">Replace with drawing output</div></div>
+        <div class="img-placeholder"><div class="placeholder-icon">📊</div><div class="placeholder-text">Replace with MATLAB reachability map</div></div>
+      </div>
+      <div class="proj-body">
+        <p>A 3D-printed 5-bar linkage driven by two stepper motors and controlled by a Raspberry Pi, which converts photographs into physical pen drawings. Each arm is around 20cm, mounted to a board with the pen held in a printed clamp at the end effector. The software pipeline applies Canny edge detection, sorts contours by area, converts them to splines, then solves the IK analytically — with a position checker to reject configurations outside the reachable workspace. A MATLAB script mapping the full reachable workspace was written as a development tool.</p>
+        <p>The software is complete and functional, successfully drawing simple shapes and basic contour outlines. Drawing quality is limited by mechanical slop in the current design. Project is now closed.</p>
+      </div>
+      <a class="proj-link" href="https://github.com/Torni124/5-Bar-Linkage-Drawing" target="_blank">github.com/Torni124/5-Bar-Linkage-Drawing ↗</a>
+    </div>
+
+    <!-- TRACKER BOT -->
+    <div class="project-card">
+      <div class="proj-header">
+        <div>
+          <div class="proj-num">05</div>
+          <div class="proj-title">Object Tracking Robot</div>
+          <div class="proj-summary">Real-time vision-guided two-wheeled robot</div>
+        </div>
+        <div class="proj-tags">
+          <span class="tag">OpenCV</span><span class="tag">Raspberry Pi</span><span class="tag">Python</span>
+        </div>
+      </div>
+      <div class="img-row cols-2">
+        <div class="img-placeholder"><div class="placeholder-icon">🤖</div><div class="placeholder-text">Replace with tracker bot photo</div></div>
+        <div class="img-placeholder"><div class="placeholder-icon">👁️</div><div class="placeholder-text">Replace with tracking overlay / camera view</div></div>
+      </div>
+      <div class="proj-body">
+        <p>A two-wheeled robot on a 3D printed and metal chassis, driven by DC motors and a Raspberry Pi with a Pi camera. Tracks objects by color and shape in real time using an adaptive color mask and contour approximation — no neural networks, designed for soccer ball-sized targets. The Pi broadcasts a hotspot for direct laptop control. Project closed.</p>
+      </div>
+    </div>
+
+    <!-- TEAM PROJECTS -->
+    <div class="project-card">
+      <div class="proj-header">
+        <div>
+          <div class="proj-num">06</div>
+          <div class="proj-title">Team Projects</div>
+          <div class="proj-summary">MATE ROV · lower limb exoskeleton · Mars rover</div>
+        </div>
+        <div class="proj-tags">
+          <span class="tag">ROS2</span><span class="tag">Gazebo</span><span class="tag">SolidWorks</span><span class="tag">Machining</span>
+        </div>
+      </div>
+      <div class="status-badge active"><div class="dot"></div> Active — 3 teams</div>
+      <div class="img-row cols-3">
+        <div class="img-placeholder"><div class="placeholder-icon">🤿</div><div class="placeholder-text">Replace with ROV photo</div></div>
+        <div class="img-placeholder"><div class="placeholder-icon">🦿</div><div class="placeholder-text">Replace with exoskeleton joint / cycloidal drive CAD</div></div>
+        <div class="img-placeholder"><div class="placeholder-icon">🪐</div><div class="placeholder-text">Replace with Poly1Rover hardware photo or CAD</div></div>
+      </div>
+      <div class="proj-body">
+        <p><strong style="font-weight:500;">MATE ROV (Software Lead)</strong> — Leading the topside software for an underwater ROV built for the MATE competition. The control system runs on a topside Jetson Nano, communicating with the embedded board on the ROV via USB. ROS2 Humble manages a network of nodes handling thruster vectoring, controls, PID, and computer vision. A Gazebo simulation has been the primary testing environment ahead of first water trials.</p>
+        <p><strong style="font-weight:500;">Lower Limb Exoskeleton Assist Project</strong> — Contributing to the mechanical design of cycloidal drive systems and surrounding joint assemblies, iterating through 3D printed prototypes and helping manufacture custom steel and aluminium components on mills.</p>
+        <p><strong style="font-weight:500;">Poly1Rover Mars Rover Project</strong> — Designing and iterating mechanical hardware with a focus on rapid prototyping and manufacturability.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SMALLER PROJECTS -->
+  <section id="smaller">
+    <div class="section-label">Smaller &amp; ongoing experiments</div>
+    <div class="mini-grid">
+      <div class="mini-cell"><div class="mini-title">Quadcopter Flight Controller</div><div class="mini-desc">Custom (terribly inefficient) flight controller built from scratch in Python.</div></div>
+      <div class="mini-cell"><div class="mini-title">Trebuchets</div><div class="mini-desc">Various designs explored and built across multiple iterations.</div></div>
+      <div class="mini-cell"><div class="mini-title">Capstan Drive</div><div class="mini-desc">Rope-driven capstan transmission mechanism design.</div></div>
+      <div class="mini-cell"><div class="mini-title">High Voltage Capacitors</div><div class="mini-desc">High voltage capacitor charging and discharge experiments.</div></div>
+      <div class="mini-cell"><div class="mini-title">Offroad Robot</div><div class="mini-desc">Intended field platform for testing the footpath detection model.</div></div>
+      <div class="mini-cell"><div class="mini-title">Vacuum Tube Tesla Coil</div><div class="mini-desc">High frequency resonant transformer using vacuum tubes.</div></div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <div class="section-label">Skills &amp; tools</div>
+  <div class="skills-grid" style="margin-bottom:5rem;">
+    <div class="skill-cell"><div class="skill-name">Robotics</div><div class="skill-sub">ROS2 · Gazebo · IK · Path Planning</div></div>
+    <div class="skill-cell"><div class="skill-name">Computer Vision</div><div class="skill-sub">OpenCV · PyTorch · YOLO</div></div>
+    <div class="skill-cell"><div class="skill-name">Mechanical CAD</div><div class="skill-sub">SolidWorks · Fusion 360 · ANSYS</div></div>
+    <div class="skill-cell"><div class="skill-name">Fabrication</div><div class="skill-sub">3D Printing · Machine Shop · GD&amp;T</div></div>
+    <div class="skill-cell"><div class="skill-name">Software</div><div class="skill-sub">Python · MATLAB · C++ · Git</div></div>
+    <div class="skill-cell"><div class="skill-name">Embedded</div><div class="skill-sub">Raspberry Pi · Microcontrollers · GPIO</div></div>
   </div>
 
-  <section class="projects" id="work">
-    <div class="section-label">Selected work</div>
-    <div class="project-item">
-      <div>
-        <div class="proj-num">01</div>
-        <div class="proj-title">Project Alpha</div>
-        <div class="proj-desc">Brief description of what this project does and the impact it had.</div>
-      </div>
-      <div class="proj-tags"><span class="tag">Python</span><span class="tag">AWS</span></div>
+  <!-- RESUME -->
+  <div class="section-label" style="margin-top:5rem;">Resume</div>
+  <div class="resume-strip">
+    <div>
+      <div class="edu-main">Bodie Orni</div>
+      <div class="edu-sub">B.S. Mechanical Engineering · Cal Poly SLO · Expected June 2028</div>
     </div>
-    <div class="project-item">
-      <div>
-        <div class="proj-num">02</div>
-        <div class="proj-title">Project Beta</div>
-        <div class="proj-desc">Brief description of what this project does and the impact it had.</div>
-      </div>
-      <div class="proj-tags"><span class="tag">React</span><span class="tag">API</span></div>
-    </div>
-    <div class="project-item">
-      <div>
-        <div class="proj-num">03</div>
-        <div class="proj-title">Project Gamma</div>
-        <div class="proj-desc">Brief description of what this project does and the impact it had.</div>
-      </div>
-      <div class="proj-tags"><span class="tag">ML</span><span class="tag">Data</span></div>
-    </div>
-  </section>
+    <a class="hero-cta" href="BodieOrniResume.pdf" target="_blank">Download PDF →</a>
+  </div>
 
-  <div class="contact-strip">
-    <span class="contact-line">Open to opportunities.</span>
+  <!-- EDU -->
+  <div class="section-label" style="margin-top:5rem;">Education</div>
+  <div class="edu-strip">
+    <div class="edu-main">California Polytechnic State University, San Luis Obispo</div>
+    <div class="edu-sub">B.S. Mechanical Engineering · Minor in Computer Science · Concentration in Mechatronics</div>
+    <div class="edu-sub">Tau Beta Pi Engineering Honor Society · Dean's List all quarters · Expected June 2028</div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact-strip" id="contact">
+    <span class="contact-line">Open to opportunities &amp; collaborations.</span>
     <div class="contact-links">
-      <a href="https://github.com/" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/" target="_blank">LinkedIn</a>
-      <a href="mailto:you@example.com">Email</a>
+      <a href="https://github.com/Torni124" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/bodie-orni/" target="_blank">LinkedIn</a>
+      <a href="mailto:borni@calpoly.edu">Email</a>
     </div>
   </div>
 
