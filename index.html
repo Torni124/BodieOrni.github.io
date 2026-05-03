@@ -186,10 +186,10 @@
         </div>
       </div>
       <div class="status-badge active"><div class="dot"></div> Active</div>
-      <div class="img-row cols-3">
-        <div class="img-placeholder"><div class="placeholder-icon">🛤️</div><div class="placeholder-text">Replace with input image</div></div>
-        <div class="img-placeholder"><div class="placeholder-icon">✅</div><div class="placeholder-text">Replace with ground truth overlay</div></div>
-        <div class="img-placeholder"><div class="placeholder-icon">🔮</div><div class="placeholder-text">Replace with prediction overlay</div></div>
+      <div class="img-row cols-1" style="max-width:100%;">
+        <div class="img-wrap"><img src="000_IMG_6878_triptych.png" alt="Trail segmentation — dirt path through grass" /></div>
+        <div class="img-wrap"><img src="001_IMG_6520_triptych.png" alt="Trail segmentation — rocky hillside path" /></div>
+        <div class="img-wrap"><img src="002_IMG_7010_triptych.png" alt="Trail segmentation — forest floor path" /></div>
       </div>
       <div class="proj-body">
         <p>A segmentation system for identifying footpaths in trail imagery, built entirely on self-recorded and annotated data. The architecture uses a lightweight classifier to route images to specialized segmentation models trained on different trail types — currently two models covering forest and dirt trails, with more planned. This approach handles variation across trail environments better than a single general model would. Currently tracking loss, mean IoU, and Dice coefficient across ~450 annotated images, with the dataset actively expanding.</p>
