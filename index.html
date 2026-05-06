@@ -119,7 +119,7 @@
   <!-- HERO -->
   <section class="hero">
     <h1 class="hero-name">Bodie Orni</h1>
-    <p class="hero-bio">Mechanical engineering student with a focus on robotics and controls. I work across the full stack of a project — designing mechanisms, integrating components, and writing the software myself. Started building robots in my basement before college, which is where I picked up ROS. Currently working in ROS2, Python, and SolidWorks.</p>
+    <p class="hero-bio">Mechanical engineering student with a focus on robotics and controls. I enjoy working on most aspects of robotics projects, including mechanical design/analysis and writing software. Started building robots in my basement before college, which is where I picked up ROS. Currently working in ROS2, Python, and SolidWorks.</p>
     <p class="hero-meta">
       <span>Cal Poly SLO — B.S. Mechanical Engineering</span>
       <span>Expected June 2028</span>
@@ -154,8 +154,8 @@
         <div class="img-wrap"><img src="002_IMG_7010_triptych.png" alt="Trail segmentation — forest floor path" /></div>
       </div>
       <div class="proj-body">
-        <p>A segmentation system for identifying footpaths in trail imagery, built entirely on self-recorded and annotated data. The architecture uses a lightweight classifier to route images to specialized segmentation models trained on different trail types — currently two models covering forest and dirt trails, with more planned. This approach handles variation across trail environments better than a single general model would. Currently tracking loss, mean IoU, and Dice coefficient across ~450 annotated images, with the dataset actively expanding.</p>
-        <p>Intended for deployment on a Raspberry Pi 5 with an accelerator shield, interfacing with a PX4 flight controller for autonomous trail navigation — currently a design goal rather than an active build. A Discord bot is set up for running quick inference tests without a local environment.</p>
+        <p>A segmentation system for identifying trails in natural environments, built with my own dataset of 450+ images. The architecture uses a lightweight classifier to select between specialized segmentation models trained on different trail types, currently two models covering forest and dirt trails, with more planned. This better handles variation across different environments and allows for lighter-weight models.</p>
+        <p>Intended for deployment on a Raspberry Pi 5 with an accelerator shield, interfacing with a PX4 flight controller for autonomous trail navigation, currently only a design goal due to cost. A Discord bot is set up for running quick segmentation tests from my phone camera.</p>
       </div>
       <a class="proj-link" href="https://github.com/Torni124/PathModelTrainer" target="_blank">github.com/Torni124/PathModelTrainer ↗</a>
     </div>
@@ -178,8 +178,8 @@
         <div class="img-placeholder"><div class="placeholder-icon">🖥️</div><div class="placeholder-text">Replace with ROS diagram or terminal screenshot</div></div>
       </div>
       <div class="proj-body">
-        <p>A 5-DOF robotic arm built on the open-source Kaidu arm design, driven by stepper motors with planetary gearboxes and controlled via a Raspberry Pi and Arduino. V2 is functional but the gearboxes are slipping — V3 will be a custom mechanical redesign addressing these issues rather than building on the base Kaidu design.</p>
-        <p>The ROS2 control system runs on a laptop and handles remote control via RViz interactive markers: a target pose is published, inverse kinematics are solved, and the resulting joint commands are sent over a socket to the Pi, which converts them to motor steps. Future work includes a camera mounted on the rotating wrist section, providing a direct view of the claw for autonomous grasping.</p>
+        <p>A 5-DOF robotic arm built on the open-source Kadua arm design, driven by stepper motors with planetary gearboxes and controlled via a Raspberry Pi and Arduino. V2 is functional, with motors slipping under torque. V3 is in the works and involves a mechanical redesign of the gearboxes to address these issues.</p>
+        <p>The ROS2 control system runs on a laptop and handles remote control via RViz. A target pose is created via clicking on a 3D interface, inverse kinematics are solved, and the resulting joint commands are sent over a socket to the Pi, which converts them to motor steps. Future work includes a camera mounted on the rotating wrist section, providing a direct view of the claw for autonomous grasping.</p>
       </div>
       <a class="proj-link" href="https://github.com/Torni124/ARM-V2" target="_blank">github.com/Torni124/ARM-V2 ↗</a>
     </div>
@@ -202,7 +202,7 @@
         <div class="img-placeholder"><div class="placeholder-icon">🔩</div><div class="placeholder-text">Replace with physical prototype photo</div></div>
       </div>
       <div class="proj-body">
-        <p>A low-cost, mostly 3D printed lead screw linear actuator designed to be rail-mounted and produced in quantity. Developed out of a need for a large number of actuators for another project, with cost minimization as the primary design goal. Built around a NEMA 17 stepper motor for prototyping, with a planned switch to a DC servo motor for higher torque at speed.</p>
+        <p>A low-cost, mostly 3D printed linear actuator designed to be rail-mounted and produced in quantity. Started working on this out of a need for a large number of actuators for another project, cost minimization, and ease of manufacturing were the primary design goals. Built around a NEMA 17 stepper motor for prototyping, with a planned switch to a DC servo motor for higher torque at speed.</p>
       </div>
     </div>
 
@@ -271,7 +271,7 @@
       </div>
       <div class="proj-body">
         <p><strong style="font-weight:500;">MATE ROV (Software Lead)</strong> — Leading the topside software for an underwater ROV built for the MATE competition. The control system runs on a topside Jetson Nano, communicating with the embedded board on the ROV via USB. ROS2 Humble manages a network of nodes handling thruster vectoring, controls, PID, and computer vision. A Gazebo simulation has been the primary testing environment ahead of first water trials.</p>
-        <p><strong style="font-weight:500;">Lower Limb Exoskeleton Assist Project</strong> — Contributing to the mechanical design of cycloidal drive systems and surrounding joint assemblies, iterating through 3D printed prototypes and helping manufacture custom steel and aluminium components on mills.</p>
+        <p><strong style="font-weight:500;">Lower Limb Exoskeleton Assist Project</strong> — Contributing to the mechanical design of cycloidal drive systems and surrounding joint assemblies, iterating through 3D printed prototypes and helping manufacture custom steel and aluminium components in a machine shop.</p>
         <p><strong style="font-weight:500;">Poly1Rover Mars Rover Project</strong> — Designing and iterating mechanical hardware with a focus on rapid prototyping and manufacturability.</p>
       </div>
     </div>
@@ -282,7 +282,7 @@
   <section id="smaller">
     <div class="section-label">Smaller &amp; ongoing experiments</div>
     <div class="mini-grid">
-      <div class="mini-cell"><div class="mini-title">Quadcopter Flight Controller</div><div class="mini-desc">Custom (terribly inefficient) flight controller built from scratch in Python.</div></div>
+      <div class="mini-cell"><div class="mini-title">Quadcopter Flight Controller</div><div class="mini-desc">Custom flight controller built from scratch in Python.</div></div>
       <div class="mini-cell"><div class="mini-title">Trebuchets</div><div class="mini-desc">Various designs explored and built across multiple iterations.</div></div>
       <div class="mini-cell"><div class="mini-title">Capstan Drive</div><div class="mini-desc">Rope-driven capstan transmission mechanism design.</div></div>
       <div class="mini-cell"><div class="mini-title">High Voltage Capacitors</div><div class="mini-desc">High voltage capacitor charging and discharge experiments.</div></div>
