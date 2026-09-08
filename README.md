@@ -1,2 +1,2 @@
 # BodieOrni.github.io
-Portfolio! Thanks for visiting
+Portfolio! Not currently pubished
