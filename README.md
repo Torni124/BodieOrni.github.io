@@ -1,2 +1,2 @@
 # BodieOrni.github.io
-Portfolio! Not currently pubished
+Portfolio! HTML file mostly AI generated
