@@ -61,6 +61,7 @@
     .proj-body p + p { margin-top: 1rem; }
     .proj-link { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold-border); padding-bottom: 1px; font-style: italic; transition: border-color 0.15s; }
     .proj-link:hover { border-color: var(--gold); }
+    .proj-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
 
     .status-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; padding: 3px 10px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem; font-style: italic; }
     .status-badge.active { border: 1px solid rgba(140,190,100,0.3); color: #8fbe6a; background: rgba(140,190,100,0.07); }
@@ -68,27 +69,25 @@
     .dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
 
     .img-row { display: grid; gap: 8px; margin: 1.5rem 0; }
+    .img-row.cols-1 { grid-template-columns: 1fr; }
     .img-row.cols-2 { grid-template-columns: 1fr 1fr; }
     .img-row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
     .img-wrap { overflow: hidden; border: 1px solid var(--border); }
-    .img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .img-wrap img, .img-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
     .img-placeholder { border: 1px dashed var(--border-strong); background: var(--bg-secondary); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1rem; text-align: center; min-height: 180px; }
     .placeholder-icon { font-size: 22px; margin-bottom: 0.5rem; opacity: 0.18; }
     .placeholder-text { font-size: 10px; color: var(--text-tertiary); letter-spacing: 0.07em; text-transform: uppercase; line-height: 1.6; font-style: italic; }
 
-    .resume-strip { display: flex; justify-content: space-between; align-items: center; border: 1px solid var(--border); padding: 1.25rem 1.5rem; margin-bottom: 2rem; background: var(--bg-secondary); }
-    .edu-strip { border: 1px solid var(--border); padding: 1.25rem 1.5rem; margin-bottom: 2rem; background: var(--bg-secondary); }
-    .edu-main { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
-    .edu-sub { font-size: 13px; color: var(--text-secondary); font-style: italic; }
-    .edu-sub + .edu-sub { margin-top: 3px; }
+    /* TEMPORARY — marks numbers I guessed. Search the file for "todo" and delete this rule once they're confirmed. */
+    .todo { color: #e08a5a; font-style: normal; border-bottom: 1px dotted rgba(224,138,90,0.6); }
 
-    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; border: 1px solid var(--border); overflow: hidden; margin-bottom: 5rem; background: var(--border); }
     .mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; border: 1px solid var(--border); overflow: hidden; margin-bottom: 5rem; background: var(--border); }
-    .skill-cell, .mini-cell { padding: 1.25rem 1rem; background: var(--bg-secondary); transition: background 0.15s; }
-    .skill-cell:hover, .mini-cell:hover { background: var(--bg-tertiary); }
-    .skill-name, .mini-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
-    .skill-sub { font-size: 12px; color: var(--text-tertiary); font-style: italic; }
+    .mini-cell { padding: 1.25rem 1rem; background: var(--bg-secondary); transition: background 0.15s; }
+    .mini-cell:hover { background: var(--bg-tertiary); }
+    .mini-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
     .mini-desc { font-size: 12px; color: var(--text-tertiary); line-height: 1.5; font-style: italic; }
+    .mini-link { display: inline-block; margin-top: 8px; font-size: 11px; color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold-border); font-style: italic; }
+    .mini-link:hover { border-color: var(--gold); }
 
     .contact-strip { padding: 2rem 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
     .contact-line { font-size: 14px; color: var(--text-secondary); font-style: italic; }
@@ -99,8 +98,7 @@
     @media (max-width: 560px) {
       .proj-header { flex-direction: column; }
       .proj-tags { justify-content: flex-start; max-width: 100%; }
-      .skills-grid, .mini-grid { grid-template-columns: repeat(2, 1fr); }
-      .resume-strip { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .mini-grid { grid-template-columns: repeat(2, 1fr); }
       .contact-strip { flex-direction: column; gap: 1rem; align-items: flex-start; }
     }
   </style>
@@ -119,7 +117,7 @@
   <!-- HERO -->
   <section class="hero">
     <h1 class="hero-name">Bodie Orni</h1>
-    <p class="hero-bio">Mechanical engineering student with a focus on robotics and controls. I enjoy working on most aspects of robotics projects, including mechanical design/analysis and writing software. Started building robots in my basement before college, which is where I picked up ROS. Currently working in ROS2, Python, and SolidWorks.</p>
+    <p class="hero-bio">Mechanical engineering student with a focus on robotics and controls. I enjoy working on most aspects of robotics projects, including mechanical design/analysis and writing software. Started building robots in my basement before college, which is where I picked up ROS. Currently working in ROS2, Python, SolidWorks, and MATLAB.</p>
     <p class="hero-meta">
       <span>Cal Poly SLO — B.S. Mechanical Engineering</span>
       <span>Expected June 2028</span>
@@ -135,11 +133,51 @@
   <section class="projects" id="projects">
     <div class="section-label">Selected projects</div>
 
-    <!-- FOOTPATH DETECTION -->
+    <!-- CYCLOIDAL GEARBOX -->
     <div class="project-card">
       <div class="proj-header">
         <div>
           <div class="proj-num">01</div>
+          <div class="proj-title">100:1 Cycloidal<br>Gearbox</div>
+          <div class="proj-summary">Compound cycloidal and ball reducer design, plus the analysis tools behind it</div>
+        </div>
+        <div class="proj-tags">
+          <span class="tag">SolidWorks</span><span class="tag">MATLAB</span><span class="tag">GD&amp;T</span><span class="tag">Monte Carlo</span><span class="tag">3D Print</span>
+        </div>
+      </div>
+      <div class="status-badge active"><div class="dot"></div> Active</div>
+
+      <!-- VIDEO: drop cycloidal_demo.mp4 next to this file, then delete the placeholder div below and uncomment this block.
+      <div class="img-row cols-1">
+        <div class="img-wrap">
+          <video src="cycloidal_demo.mp4" poster="cycloidal_poster.jpg" controls muted loop playsinline></video>
+        </div>
+      </div>
+      -->
+      <div class="img-row cols-1">
+        <div class="img-placeholder"><div class="placeholder-icon">🎞️</div><div class="placeholder-text">Replace with video of the printed prototype running</div></div>
+      </div>
+      <div class="img-row cols-2">
+        <div class="img-placeholder"><div class="placeholder-icon">⚙️</div><div class="placeholder-text">Replace with section-view CAD render of the assembly</div></div>
+        <div class="img-placeholder"><div class="placeholder-icon">📈</div><div class="placeholder-text">Replace with generated cycloid profile / tolerance plot</div></div>
+      </div>
+
+      <div class="proj-body">
+        <p>A <span class="todo">100:1</span> speed reducer that stacks a cycloidal disc stage against a cycloidal ball reducer stage, both driven off single-lobe eccentric wave generators so the tooth-to-wave count difference is one. The ball stage runs 11 balls in a cage against a 10-wave outer raceway on a single-eccentric cam; the cycloidal stage uses <span class="todo">17 ring pins on a 16-lobe disc</span>. A 3D printed prototype was built to check assembly, backlash, and motion before committing to machined parts.</p>
+        <p><strong style="font-weight:500;">Cycloid analysis toolset</strong> — A set of MATLAB and Excel tools written to support the design. Profile generation takes dimensional specs and produces the cycloid geometry for CAD import, including the inverted configuration where the outer ring is the output. A separate script checks whether a given ball count aliases the raceway wave count down to the cam lobe count, which is what makes a ball reducer ratio valid rather than a jam. Tolerance stacks are run as a Monte Carlo simulation in MATLAB and cross-checked against an independent Excel implementation, so a stack-up result has to survive two different models before it drives a dimension.</p>
+      </div>
+      <!-- Add repo link(s) here if the toolset gets its own repo:
+      <div class="proj-links">
+        <a class="proj-link" href="#" target="_blank">github.com/Torni124/... ↗</a>
+      </div>
+      -->
+    </div>
+
+    <!-- FOOTPATH DETECTION -->
+    <div class="project-card">
+      <div class="proj-header">
+        <div>
+          <div class="proj-num">02</div>
           <div class="proj-title">Footpath Detection<br>Vision Model</div>
           <div class="proj-summary">Semantic segmentation for autonomous trail navigation</div>
         </div>
@@ -148,7 +186,7 @@
         </div>
       </div>
       <div class="status-badge active"><div class="dot"></div> Active</div>
-      <div class="img-row cols-1" style="max-width:100%;">
+      <div class="img-row cols-1">
         <div class="img-wrap"><img src="000_IMG_6878_triptych.png" alt="Trail segmentation — dirt path through grass" /></div>
         <div class="img-wrap"><img src="001_IMG_6520_triptych.png" alt="Trail segmentation — rocky hillside path" /></div>
         <div class="img-wrap"><img src="002_IMG_7010_triptych.png" alt="Trail segmentation — forest floor path" /></div>
@@ -164,7 +202,7 @@
     <div class="project-card">
       <div class="proj-header">
         <div>
-          <div class="proj-num">02</div>
+          <div class="proj-num">03</div>
           <div class="proj-title">5-DOF Robotic Arm</div>
           <div class="proj-summary">Custom ROS2 control system — V2 active</div>
         </div>
@@ -188,7 +226,7 @@
     <div class="project-card">
       <div class="proj-header">
         <div>
-          <div class="proj-num">03</div>
+          <div class="proj-num">04</div>
           <div class="proj-title">3D Printed<br>Linear Actuator</div>
           <div class="proj-summary">Custom mechanical actuator design</div>
         </div>
@@ -206,56 +244,11 @@
       </div>
     </div>
 
-    <!-- 5-BAR LINKAGE -->
-    <div class="project-card">
-      <div class="proj-header">
-        <div>
-          <div class="proj-num">04</div>
-          <div class="proj-title">5-Bar Linkage<br>Drawing Machine</div>
-          <div class="proj-summary">Image-to-drawing plotter via inverse kinematics</div>
-        </div>
-        <div class="proj-tags">
-          <span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">MATLAB</span><span class="tag">IK</span><span class="tag">3D Print</span>
-        </div>
-      </div>
-      <div class="img-row cols-3">
-        <div class="img-placeholder"><div class="placeholder-icon">🖊️</div><div class="placeholder-text">Replace with physical arm photo</div></div>
-        <div class="img-placeholder"><div class="placeholder-icon">🌲</div><div class="placeholder-text">Replace with drawing output</div></div>
-        <div class="img-placeholder"><div class="placeholder-icon">📊</div><div class="placeholder-text">Replace with MATLAB reachability map</div></div>
-      </div>
-      <div class="proj-body">
-        <p>A 3D-printed 5-bar linkage driven by two stepper motors and controlled by a Raspberry Pi, which converts photographs into physical pen drawings. Each arm is around 20cm, mounted to a board with the pen held in a printed clamp at the end effector. The software pipeline applies Canny edge detection, sorts contours by area, converts them to splines, then solves the IK analytically — with a position checker to reject configurations outside the reachable workspace. A MATLAB script mapping the full reachable workspace was written as a development tool.</p>
-        <p>The software is complete and functional, successfully drawing simple shapes and basic contour outlines. Drawing quality is limited by mechanical slop in the current design. Project is now closed.</p>
-      </div>
-      <a class="proj-link" href="https://github.com/Torni124/5-Bar-Linkage-Drawing" target="_blank">github.com/Torni124/5-Bar-Linkage-Drawing ↗</a>
-    </div>
-
-    <!-- TRACKER BOT -->
-    <div class="project-card">
-      <div class="proj-header">
-        <div>
-          <div class="proj-num">05</div>
-          <div class="proj-title">Object Tracking Robot</div>
-          <div class="proj-summary">Real-time vision-guided two-wheeled robot</div>
-        </div>
-        <div class="proj-tags">
-          <span class="tag">OpenCV</span><span class="tag">Raspberry Pi</span><span class="tag">Python</span>
-        </div>
-      </div>
-      <div class="img-row cols-2">
-        <div class="img-placeholder"><div class="placeholder-icon">🤖</div><div class="placeholder-text">Replace with tracker bot photo</div></div>
-        <div class="img-placeholder"><div class="placeholder-icon">👁️</div><div class="placeholder-text">Replace with tracking overlay / camera view</div></div>
-      </div>
-      <div class="proj-body">
-        <p>A two-wheeled robot on a 3D printed and metal chassis, driven by DC motors and a Raspberry Pi with a Pi camera. Tracks objects by color and shape in real time using an adaptive color mask and contour approximation — no neural networks, designed for soccer ball-sized targets. The Pi broadcasts a hotspot for direct laptop control. Project closed.</p>
-      </div>
-    </div>
-
     <!-- TEAM PROJECTS -->
     <div class="project-card">
       <div class="proj-header">
         <div>
-          <div class="proj-num">06</div>
+          <div class="proj-num">05</div>
           <div class="proj-title">Team Projects</div>
           <div class="proj-summary">MATE ROV · lower limb exoskeleton · Mars rover</div>
         </div>
@@ -282,43 +275,16 @@
   <section id="smaller">
     <div class="section-label">Smaller &amp; ongoing experiments</div>
     <div class="mini-grid">
+      <div class="mini-cell"><div class="mini-title">5-Bar Linkage Drawing Machine</div><div class="mini-desc">Stepper-driven linkage that turns photos into pen drawings via Canny edge detection and analytic IK. Closed.</div><a class="mini-link" href="https://github.com/Torni124/5-Bar-Linkage-Drawing" target="_blank">GitHub ↗</a></div>
+      <div class="mini-cell"><div class="mini-title">Object Tracking Robot</div><div class="mini-desc">Two-wheeled Pi robot tracking targets by color and contour, no neural networks.</div></div>
       <div class="mini-cell"><div class="mini-title">Quadcopter Flight Controller</div><div class="mini-desc">Custom flight controller built from scratch in Python.</div></div>
-      <div class="mini-cell"><div class="mini-title">Trebuchets</div><div class="mini-desc">Various designs explored and built across multiple iterations.</div></div>
       <div class="mini-cell"><div class="mini-title">Capstan Drive</div><div class="mini-desc">Rope-driven capstan transmission mechanism design.</div></div>
-      <div class="mini-cell"><div class="mini-title">High Voltage Capacitors</div><div class="mini-desc">High voltage capacitor charging and discharge experiments.</div></div>
       <div class="mini-cell"><div class="mini-title">Offroad Robot</div><div class="mini-desc">Intended field platform for testing the footpath detection model.</div></div>
       <div class="mini-cell"><div class="mini-title">Vacuum Tube Tesla Coil</div><div class="mini-desc">High frequency resonant transformer using vacuum tubes.</div></div>
+      <div class="mini-cell"><div class="mini-title">High Voltage Capacitors</div><div class="mini-desc">High voltage capacitor charging and discharge experiments.</div></div>
+      <div class="mini-cell"><div class="mini-title">Trebuchets</div><div class="mini-desc">Various designs explored and built across multiple iterations.</div></div>
     </div>
   </section>
-
-  <!-- SKILLS -->
-  <div class="section-label">Skills &amp; tools</div>
-  <div class="skills-grid" style="margin-bottom:5rem;">
-    <div class="skill-cell"><div class="skill-name">Robotics</div><div class="skill-sub">ROS2 · Gazebo · IK · Path Planning</div></div>
-    <div class="skill-cell"><div class="skill-name">Computer Vision</div><div class="skill-sub">OpenCV · PyTorch · YOLO</div></div>
-    <div class="skill-cell"><div class="skill-name">Mechanical CAD</div><div class="skill-sub">SolidWorks · Fusion 360 · ANSYS</div></div>
-    <div class="skill-cell"><div class="skill-name">Fabrication</div><div class="skill-sub">3D Printing · Machine Shop · GD&amp;T</div></div>
-    <div class="skill-cell"><div class="skill-name">Software</div><div class="skill-sub">Python · MATLAB · C++ · Git</div></div>
-    <div class="skill-cell"><div class="skill-name">Embedded</div><div class="skill-sub">Raspberry Pi · Microcontrollers · GPIO</div></div>
-  </div>
-
-  <!-- RESUME -->
-  <div class="section-label" style="margin-top:5rem;">Resume</div>
-  <div class="resume-strip">
-    <div>
-      <div class="edu-main">Bodie Orni</div>
-      <div class="edu-sub">B.S. Mechanical Engineering · Cal Poly SLO · Expected June 2028</div>
-    </div>
-    <a class="hero-cta" href="BodieOrniResume.pdf" target="_blank">Download PDF →</a>
-  </div>
-
-  <!-- EDU -->
-  <div class="section-label" style="margin-top:5rem;">Education</div>
-  <div class="edu-strip">
-    <div class="edu-main">California Polytechnic State University, San Luis Obispo</div>
-    <div class="edu-sub">B.S. Mechanical Engineering · Minor in Computer Science · Concentration in Mechatronics</div>
-    <div class="edu-sub">Tau Beta Pi Engineering Honor Society · Dean's List all quarters · Expected June 2028</div>
-  </div>
 
   <!-- CONTACT -->
   <div class="contact-strip" id="contact">
