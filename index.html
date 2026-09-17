@@ -69,17 +69,24 @@
     .status-badge.closed { border: 1px solid var(--border-strong); color: var(--text-tertiary); background: rgba(240,234,216,0.04); }
     .dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
 
-    .img-row { display: grid; gap: 8px; margin: 1.5rem 0; }
+    .img-row { display: grid; gap: 14px; margin: 1.5rem 0; align-items: start; }
     .img-row.cols-1 { grid-template-columns: 1fr; }
     .img-row.cols-2 { grid-template-columns: 1fr 1fr; }
     .img-row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+    .media { display: flex; flex-direction: column; }
+    .caption { font-size: 13px; line-height: 1.5; color: var(--text-secondary); margin-top: 9px; font-style: italic; }
+
+    /* Fixed-ratio frame: every image in a row renders the same size, centered, nothing cropped. */
+    .frame { border: 1px solid var(--border); background: var(--bg-secondary); aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .frame img { max-width: 100%; max-height: 100%; width: auto; height: auto; display: block; }
+
     .img-wrap { overflow: hidden; border: 1px solid var(--border); }
-    .img-wrap img, .img-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .img-row.natural { align-items: start; }
-    .img-row.natural .img-wrap img { height: auto; object-fit: contain; }
+    .img-wrap img { width: 100%; height: auto; display: block; }
+
     .video-wrap { border: 1px solid var(--border); background: #000; display: flex; justify-content: center; }
     .video-wrap video { width: auto; max-width: 100%; max-height: 520px; display: block; }
-    .media-note { font-size: 11px; color: var(--text-tertiary); font-style: italic; margin-top: -0.75rem; margin-bottom: 1.5rem; }
+
     .img-placeholder { border: 1px dashed var(--border-strong); background: var(--bg-secondary); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1rem; text-align: center; min-height: 180px; }
     .placeholder-icon { font-size: 22px; margin-bottom: 0.5rem; opacity: 0.18; }
     .placeholder-text { font-size: 10px; color: var(--text-tertiary); letter-spacing: 0.07em; text-transform: uppercase; line-height: 1.6; font-style: italic; }
@@ -101,6 +108,7 @@
     @media (max-width: 560px) {
       .proj-header { flex-direction: column; }
       .proj-tags { justify-content: flex-start; max-width: 100%; }
+      .img-row.cols-2, .img-row.cols-3 { grid-template-columns: 1fr; }
       .mini-grid { grid-template-columns: repeat(2, 1fr); }
       .contact-strip { flex-direction: column; gap: 1rem; align-items: flex-start; }
     }
@@ -160,20 +168,31 @@
       <div class="img-row cols-1">
         <div class="img-placeholder"><div class="placeholder-icon">🎞️</div><div class="placeholder-text">Replace with video of the printed prototype running</div></div>
       </div>
-      <div class="img-row cols-2 natural">
-        <div class="img-wrap"><img src="Screenshot%202026-09-16%20220602.png" alt="Cross-section CAD view of the nested two-stage cycloidal gearbox" /></div>
-        <div class="img-wrap"><img src="Screenshot%202026-09-16%20221302.png" alt="Cycloid profile generator output" /></div>
+      <div class="img-row cols-2">
+        <div class="media">
+          <div class="frame"><img src="Screenshot%202026-09-16%20220602.png" alt="Cross-section CAD view of the nested two-stage cycloidal gearbox" /></div>
+          <div class="caption">Cross-section of the assembly — the ball reducer stage nested inside the cycloidal stage.</div>
+        </div>
+        <div class="media">
+          <div class="frame"><img src="Screenshot%202026-09-16%20221302.png" alt="Cycloid profile generator output" /></div>
+          <div class="caption">Profile generator output for a given set of dimensional inputs.</div>
+        </div>
       </div>
 
       <div class="proj-body">
         <p>A 100:1 speed reducer in two stages, nested inside one another rather than stacked end to end, which is what keeps the package extremely thin. The inner stage is a cycloidal ball reducer running 11 balls in a cage against a 10-wave raceway; the outer stage is a standard cycloidal disc with 11 ring pins on 10 lobes. Both run single-lobe eccentric wave generators, so each stage reduces 10:1 and the pair compounds to 100:1. High reduction, low backlash, and minimum axial thickness were the design constraints, in that order. A 3D printed prototype was built to check assembly, backlash, and motion before committing to machined parts.</p>
       </div>
 
-      <div class="img-row cols-2 natural">
-        <div class="img-wrap"><img src="Screenshot%202026-09-16%20221358.png" alt="Monte Carlo backlash distribution for the gearbox tolerance stack" /></div>
-        <div class="img-wrap"><img src="Screenshot%202026-09-16%20221411.png" alt="Tolerance contribution by dimension" /></div>
+      <div class="img-row cols-2">
+        <div class="media">
+          <div class="frame"><img src="Screenshot%202026-09-16%20221358.png" alt="Monte Carlo backlash distribution for the gearbox tolerance stack" /></div>
+          <div class="caption">Monte Carlo backlash distribution across the full tolerance stack.</div>
+        </div>
+        <div class="media">
+          <div class="frame"><img src="Screenshot%202026-09-16%20221411.png" alt="Tolerance contribution by dimension" /></div>
+          <div class="caption">Each dimension's share of the total stack, used to decide where tight tolerances are worth the cost.</div>
+        </div>
       </div>
-      <p class="media-note">Monte Carlo backlash distribution, and each dimension's share of the total stack.</p>
 
       <div class="proj-body">
         <p><strong style="font-weight:500;">Cycloid analysis toolset</strong> — A set of MATLAB and Excel tools written to support the design. Profile generation takes dimensional specs and produces the cycloid geometry for CAD import, including the inverted configuration where the outer ring is the output. A separate script checks whether a given ball count aliases the raceway wave count down to the cam lobe count, which is what makes a ball reducer ratio valid rather than a jam. Tolerance stacks are run as a Monte Carlo simulation in MATLAB and cross-checked against an independent Excel implementation, so a stack-up result has to survive two different models before it drives a dimension.</p>
@@ -200,20 +219,31 @@
       <div class="status-badge closed"><div class="dot"></div> Closed</div>
 
       <div class="img-row cols-1">
-        <div class="video-wrap">
-          <video controls muted loop playsinline preload="metadata">
-            <source src="IMG_7550.mp4" type="video/mp4" />
-            <source src="IMG_7550.mov" type="video/quicktime" />
-            Your browser can't play this video. <a href="IMG_7550.mov">Download it instead.</a>
-          </video>
+        <div class="media">
+          <div class="video-wrap">
+            <video controls muted loop playsinline preload="metadata">
+              <source src="IMG_7550.mp4" type="video/mp4" />
+              <source src="IMG_7550.mov" type="video/quicktime" />
+              Your browser can't play this video. <a href="IMG_7550.mov">Download it instead.</a>
+            </video>
+          </div>
+          <div class="caption">Test run of the drone the model was built for.</div>
         </div>
       </div>
-      <p class="media-note">Test run of the trail-following drone.</p>
 
       <div class="img-row cols-1">
-        <div class="img-wrap"><img src="000_IMG_6878_triptych.png" alt="Trail segmentation — dirt path through grass" /></div>
-        <div class="img-wrap"><img src="001_IMG_6520_triptych.png" alt="Trail segmentation — rocky hillside path" /></div>
-        <div class="img-wrap"><img src="002_IMG_7010_triptych.png" alt="Trail segmentation — forest floor path" /></div>
+        <div class="media">
+          <div class="img-wrap"><img src="000_IMG_6878_triptych.png" alt="Trail segmentation — dirt path through grass" /></div>
+          <div class="caption">Segmentation output — dirt path through grass.</div>
+        </div>
+        <div class="media">
+          <div class="img-wrap"><img src="001_IMG_6520_triptych.png" alt="Trail segmentation — rocky hillside path" /></div>
+          <div class="caption">Segmentation output — rocky hillside.</div>
+        </div>
+        <div class="media">
+          <div class="img-wrap"><img src="002_IMG_7010_triptych.png" alt="Trail segmentation — forest floor path" /></div>
+          <div class="caption">Segmentation output — forest floor.</div>
+        </div>
       </div>
       <div class="proj-body">
         <p>A segmentation system for identifying trails in natural environments, built with my own dataset of 450+ images. The architecture uses a lightweight classifier to select between specialized segmentation models trained on different trail types, currently two models covering forest and dirt trails, with more planned. This better handles variation across different environments and allows for lighter-weight models.</p>
