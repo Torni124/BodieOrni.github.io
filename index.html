@@ -75,6 +75,11 @@
     .img-row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
     .img-wrap { overflow: hidden; border: 1px solid var(--border); }
     .img-wrap img, .img-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .img-row.natural { align-items: start; }
+    .img-row.natural .img-wrap img { height: auto; object-fit: contain; }
+    .video-wrap { border: 1px solid var(--border); background: #000; display: flex; justify-content: center; }
+    .video-wrap video { width: auto; max-width: 100%; max-height: 520px; display: block; }
+    .media-note { font-size: 11px; color: var(--text-tertiary); font-style: italic; margin-top: -0.75rem; margin-bottom: 1.5rem; }
     .img-placeholder { border: 1px dashed var(--border-strong); background: var(--bg-secondary); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1rem; text-align: center; min-height: 180px; }
     .placeholder-icon { font-size: 22px; margin-bottom: 0.5rem; opacity: 0.18; }
     .placeholder-text { font-size: 10px; color: var(--text-tertiary); letter-spacing: 0.07em; text-transform: uppercase; line-height: 1.6; font-style: italic; }
@@ -155,9 +160,9 @@
       <div class="img-row cols-1">
         <div class="img-placeholder"><div class="placeholder-icon">🎞️</div><div class="placeholder-text">Replace with video of the printed prototype running</div></div>
       </div>
-      <div class="img-row cols-2">
-        <div class="img-placeholder"><div class="placeholder-icon">⚙️</div><div class="placeholder-text">Replace with section-view CAD render of the assembly</div></div>
-        <div class="img-placeholder"><div class="placeholder-icon">📈</div><div class="placeholder-text">Replace with generated cycloid profile / tolerance plot</div></div>
+      <div class="img-row cols-2 natural">
+        <div class="img-wrap"><img src="Screenshot%202026-09-16%20220602.png" alt="Cross-section CAD view of the nested two-stage cycloidal gearbox" /></div>
+        <div class="img-wrap"><img src="Screenshot%202026-09-16%20221302.png" alt="Cycloid profile generator output" /></div>
       </div>
 
       <div class="proj-body">
@@ -185,16 +190,16 @@
       </div>
       <div class="status-badge closed"><div class="dot"></div> Closed</div>
 
-      <!-- VIDEO: drop drone_test_run.mp4 next to this file, then delete the placeholder div below and uncomment this block.
       <div class="img-row cols-1">
-        <div class="img-wrap">
-          <video src="drone_test_run.mp4" poster="drone_test_run_poster.jpg" controls muted loop playsinline></video>
+        <div class="video-wrap">
+          <video controls muted loop playsinline preload="metadata">
+            <source src="IMG_7550.mp4" type="video/mp4" />
+            <source src="IMG_7550.mov" type="video/quicktime" />
+            Your browser can't play this video. <a href="IMG_7550.mov">Download it instead.</a>
+          </video>
         </div>
       </div>
-      -->
-      <div class="img-row cols-1">
-        <div class="img-placeholder"><div class="placeholder-icon">🎞️</div><div class="placeholder-text">Replace with drone test run video</div></div>
-      </div>
+      <p class="media-note">Test run of the trail-following drone.</p>
 
       <div class="img-row cols-1">
         <div class="img-wrap"><img src="000_IMG_6878_triptych.png" alt="Trail segmentation — dirt path through grass" /></div>
