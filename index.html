@@ -79,9 +79,6 @@
     .placeholder-icon { font-size: 22px; margin-bottom: 0.5rem; opacity: 0.18; }
     .placeholder-text { font-size: 10px; color: var(--text-tertiary); letter-spacing: 0.07em; text-transform: uppercase; line-height: 1.6; font-style: italic; }
 
-    /* TEMPORARY — marks numbers I guessed. Search the file for "todo" and delete this rule once they're confirmed. */
-    .todo { color: #e08a5a; font-style: normal; border-bottom: 1px dotted rgba(224,138,90,0.6); }
-
     .mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; border: 1px solid var(--border); overflow: hidden; margin-bottom: 5rem; background: var(--border); }
     .mini-cell { padding: 1.25rem 1rem; background: var(--bg-secondary); transition: background 0.15s; }
     .mini-cell:hover { background: var(--bg-tertiary); }
@@ -140,7 +137,7 @@
         <div>
           <div class="proj-num">01</div>
           <div class="proj-title">100:1 Cycloidal<br>Gearbox</div>
-          <div class="proj-summary">Compound cycloidal and ball reducer design, plus the analysis tools behind it</div>
+          <div class="proj-summary">Nested two-stage reducer built for an extremely thin package, plus the analysis tools behind it</div>
         </div>
         <div class="proj-tags">
           <span class="tag">SolidWorks</span><span class="tag">MATLAB</span><span class="tag">GD&amp;T</span><span class="tag">Monte Carlo</span><span class="tag">3D Print</span>
@@ -164,7 +161,7 @@
       </div>
 
       <div class="proj-body">
-        <p>A <span class="todo">100:1</span> speed reducer that stacks a cycloidal disc stage against a cycloidal ball reducer stage, both driven off single-lobe eccentric wave generators so the tooth-to-wave count difference is one. The ball stage runs 11 balls in a cage against a 10-wave outer raceway on a single-eccentric cam; the cycloidal stage uses <span class="todo">17 ring pins on a 16-lobe disc</span>. A 3D printed prototype was built to check assembly, backlash, and motion before committing to machined parts.</p>
+        <p>A 100:1 speed reducer in two stages, nested inside one another rather than stacked end to end, which is what keeps the package extremely thin. The inner stage is a cycloidal ball reducer running 11 balls in a cage against a 10-wave raceway; the outer stage is a standard cycloidal disc with 11 ring pins on 10 lobes. Both run single-lobe eccentric wave generators, so each stage reduces 10:1 and the pair compounds to 100:1. High reduction, low backlash, and minimum axial thickness were the design constraints, in that order. A 3D printed prototype was built to check assembly, backlash, and motion before committing to machined parts.</p>
         <p><strong style="font-weight:500;">Cycloid analysis toolset</strong> — A set of MATLAB and Excel tools written to support the design. Profile generation takes dimensional specs and produces the cycloid geometry for CAD import, including the inverted configuration where the outer ring is the output. A separate script checks whether a given ball count aliases the raceway wave count down to the cam lobe count, which is what makes a ball reducer ratio valid rather than a jam. Tolerance stacks are run as a Monte Carlo simulation in MATLAB and cross-checked against an independent Excel implementation, so a stack-up result has to survive two different models before it drives a dimension.</p>
       </div>
       <!-- Add repo link(s) here if the toolset gets its own repo:
@@ -211,12 +208,34 @@
       <a class="proj-link" href="https://github.com/Torni124/PathModelTrainer" target="_blank">github.com/Torni124/PathModelTrainer ↗</a>
     </div>
 
-    <!-- ROBOTIC ARM -->
+    <!-- LINEAR ACTUATOR -->
     <div class="project-card">
       <div class="proj-header">
         <div>
           <div class="proj-num">03</div>
-          <div class="proj-title">5-DOF Robotic Arm Software System</div>
+          <div class="proj-title">3D Printed<br>Linear Actuator</div>
+          <div class="proj-summary">Custom mechanical actuator design</div>
+        </div>
+        <div class="proj-tags">
+          <span class="tag">Mechanical</span><span class="tag">CAD</span><span class="tag">3D Print</span>
+        </div>
+      </div>
+      <div class="status-badge wip"><div class="dot"></div> On hold</div>
+      <div class="img-row cols-2">
+        <div class="img-placeholder"><div class="placeholder-icon">📐</div><div class="placeholder-text">Replace with CAD render</div></div>
+        <div class="img-placeholder"><div class="placeholder-icon">🔩</div><div class="placeholder-text">Replace with physical prototype photo</div></div>
+      </div>
+      <div class="proj-body">
+        <p>A low-cost, mostly 3D printed linear actuator designed to be rail-mounted and produced in quantity. Started working on this out of a need for a large number of actuators for another project, cost minimization, and ease of manufacturing were the primary design goals. Built around a NEMA 17 stepper motor for prototyping, with a planned switch to a DC servo motor for higher torque at speed.</p>
+      </div>
+    </div>
+
+    <!-- ROBOTIC ARM -->
+    <div class="project-card">
+      <div class="proj-header">
+        <div>
+          <div class="proj-num">04</div>
+          <div class="proj-title">5-DOF Robotic Arm</div>
           <div class="proj-summary">Custom ROS2 control system — V2 active</div>
         </div>
         <div class="proj-tags">
@@ -233,28 +252,6 @@
         <p>The ROS2 control system runs on a laptop and handles remote control via RViz. A target pose is created via clicking on a 3D interface, inverse kinematics are solved, and the resulting joint commands are sent over a socket to the Pi, which converts them to motor steps. Future work includes a camera mounted on the rotating wrist section, providing a direct view of the claw for autonomous grasping.</p>
       </div>
       <a class="proj-link" href="https://github.com/Torni124/ARM-V2" target="_blank">github.com/Torni124/ARM-V2 ↗</a>
-    </div>
-
-    <!-- LINEAR ACTUATOR -->
-    <div class="project-card">
-      <div class="proj-header">
-        <div>
-          <div class="proj-num">04</div>
-          <div class="proj-title">3D Printed<br>Linear Actuator</div>
-          <div class="proj-summary">Custom mechanical actuator design</div>
-        </div>
-        <div class="proj-tags">
-          <span class="tag">Mechanical</span><span class="tag">CAD</span><span class="tag">3D Print</span>
-        </div>
-      </div>
-      <div class="status-badge wip"><div class="dot"></div> On hold</div>
-      <div class="img-row cols-2">
-        <div class="img-placeholder"><div class="placeholder-icon">📐</div><div class="placeholder-text">Replace with CAD render</div></div>
-        <div class="img-placeholder"><div class="placeholder-icon">🔩</div><div class="placeholder-text">Replace with physical prototype photo</div></div>
-      </div>
-      <div class="proj-body">
-        <p>A low-cost, mostly 3D printed linear actuator designed to be rail-mounted and produced in quantity. Started working on this out of a need for a large number of actuators for another project, cost minimization, and ease of manufacturing were the primary design goals. Built around a NEMA 17 stepper motor for prototyping, with a planned switch to a DC servo motor for higher torque at speed.</p>
-      </div>
     </div>
 
   </section>
