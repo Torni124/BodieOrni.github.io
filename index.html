@@ -66,6 +66,7 @@
     .status-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; padding: 3px 10px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem; font-style: italic; }
     .status-badge.active { border: 1px solid rgba(140,190,100,0.3); color: #8fbe6a; background: rgba(140,190,100,0.07); }
     .status-badge.wip { border: 1px solid var(--gold-border); color: var(--gold); background: var(--gold-dim); }
+    .status-badge.closed { border: 1px solid var(--border-strong); color: var(--text-tertiary); background: rgba(240,234,216,0.04); }
     .dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
 
     .img-row { display: grid; gap: 8px; margin: 1.5rem 0; }
@@ -185,7 +186,19 @@
           <span class="tag">PyTorch</span><span class="tag">Segmentation</span><span class="tag">Python</span><span class="tag">CV</span>
         </div>
       </div>
-      <div class="status-badge active"><div class="dot"></div> Active</div>
+      <div class="status-badge closed"><div class="dot"></div> Closed</div>
+
+      <!-- VIDEO: drop drone_test_run.mp4 next to this file, then delete the placeholder div below and uncomment this block.
+      <div class="img-row cols-1">
+        <div class="img-wrap">
+          <video src="drone_test_run.mp4" poster="drone_test_run_poster.jpg" controls muted loop playsinline></video>
+        </div>
+      </div>
+      -->
+      <div class="img-row cols-1">
+        <div class="img-placeholder"><div class="placeholder-icon">🎞️</div><div class="placeholder-text">Replace with drone test run video</div></div>
+      </div>
+
       <div class="img-row cols-1">
         <div class="img-wrap"><img src="000_IMG_6878_triptych.png" alt="Trail segmentation — dirt path through grass" /></div>
         <div class="img-wrap"><img src="001_IMG_6520_triptych.png" alt="Trail segmentation — rocky hillside path" /></div>
@@ -234,38 +247,13 @@
           <span class="tag">Mechanical</span><span class="tag">CAD</span><span class="tag">3D Print</span>
         </div>
       </div>
-      <div class="status-badge active"><div class="dot"></div> Active</div>
+      <div class="status-badge wip"><div class="dot"></div> On hold</div>
       <div class="img-row cols-2">
         <div class="img-placeholder"><div class="placeholder-icon">📐</div><div class="placeholder-text">Replace with CAD render</div></div>
         <div class="img-placeholder"><div class="placeholder-icon">🔩</div><div class="placeholder-text">Replace with physical prototype photo</div></div>
       </div>
       <div class="proj-body">
         <p>A low-cost, mostly 3D printed linear actuator designed to be rail-mounted and produced in quantity. Started working on this out of a need for a large number of actuators for another project, cost minimization, and ease of manufacturing were the primary design goals. Built around a NEMA 17 stepper motor for prototyping, with a planned switch to a DC servo motor for higher torque at speed.</p>
-      </div>
-    </div>
-
-    <!-- TEAM PROJECTS -->
-    <div class="project-card">
-      <div class="proj-header">
-        <div>
-          <div class="proj-num">05</div>
-          <div class="proj-title">Team Projects</div>
-          <div class="proj-summary">MATE ROV · lower limb exoskeleton · Mars rover</div>
-        </div>
-        <div class="proj-tags">
-          <span class="tag">ROS2</span><span class="tag">Gazebo</span><span class="tag">SolidWorks</span><span class="tag">Machining</span>
-        </div>
-      </div>
-      <div class="status-badge active"><div class="dot"></div> Active — 3 teams</div>
-      <div class="img-row cols-3">
-        <div class="img-placeholder"><div class="placeholder-icon">🤿</div><div class="placeholder-text">Replace with ROV photo</div></div>
-        <div class="img-placeholder"><div class="placeholder-icon">🦿</div><div class="placeholder-text">Replace with exoskeleton joint / cycloidal drive CAD</div></div>
-        <div class="img-placeholder"><div class="placeholder-icon">🪐</div><div class="placeholder-text">Replace with Poly1Rover hardware photo or CAD</div></div>
-      </div>
-      <div class="proj-body">
-        <p><strong style="font-weight:500;">MATE ROV (Software Lead)</strong> — Leading the topside software for an underwater ROV built for the MATE competition. The control system runs on a topside Jetson Nano, communicating with the embedded board on the ROV via USB. ROS2 Humble manages a network of nodes handling thruster vectoring, controls, PID, and computer vision. A Gazebo simulation has been the primary testing environment ahead of first water trials.</p>
-        <p><strong style="font-weight:500;">Lower Limb Exoskeleton Assist Project</strong> — Contributing to the mechanical design of cycloidal drive systems and surrounding joint assemblies, iterating through 3D printed prototypes and helping manufacture custom steel and aluminium components in a machine shop.</p>
-        <p><strong style="font-weight:500;">Poly1Rover Mars Rover Project</strong> — Designing and iterating mechanical hardware with a focus on rapid prototyping and manufacturability.</p>
       </div>
     </div>
 
@@ -279,7 +267,6 @@
       <div class="mini-cell"><div class="mini-title">Object Tracking Robot</div><div class="mini-desc">Two-wheeled Pi robot tracking targets by color and contour, no neural networks.</div></div>
       <div class="mini-cell"><div class="mini-title">Quadcopter Flight Controller</div><div class="mini-desc">Custom flight controller built from scratch in Python.</div></div>
       <div class="mini-cell"><div class="mini-title">Capstan Drive</div><div class="mini-desc">Rope-driven capstan transmission mechanism design.</div></div>
-      <div class="mini-cell"><div class="mini-title">Offroad Robot</div><div class="mini-desc">Intended field platform for testing the footpath detection model.</div></div>
       <div class="mini-cell"><div class="mini-title">Vacuum Tube Tesla Coil</div><div class="mini-desc">High frequency resonant transformer using vacuum tubes.</div></div>
       <div class="mini-cell"><div class="mini-title">High Voltage Capacitors</div><div class="mini-desc">High voltage capacitor charging and discharge experiments.</div></div>
       <div class="mini-cell"><div class="mini-title">Trebuchets</div><div class="mini-desc">Various designs explored and built across multiple iterations.</div></div>
