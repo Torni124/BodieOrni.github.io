@@ -259,7 +259,6 @@
       </div>
       <div class="status-badge wip"><div class="dot"></div> On hold</div>
       <div class="img-row cols-2">
-        <div class="img-placeholder"><div class="placeholder-icon">📐</div><div class="placeholder-text">Replace with CAD render</div></div>
         <div class="img-placeholder"><div class="placeholder-icon">🔩</div><div class="placeholder-text">Replace with physical prototype photo</div></div>
       </div>
       <div class="proj-body">
@@ -293,10 +292,6 @@
         </div>
       </div>
 
-      <div class="img-row cols-2">
-        <div class="img-placeholder"><div class="placeholder-icon">🦾</div><div class="placeholder-text">Replace with V2 arm photo / CAD</div></div>
-        <div class="img-placeholder"><div class="placeholder-icon">🖥️</div><div class="placeholder-text">Replace with ROS diagram or terminal screenshot</div></div>
-      </div>
       <div class="proj-body">
         <p>A 5-DOF robotic arm built on the open-source Kadua arm design, driven by stepper motors with planetary gearboxes and controlled via a Raspberry Pi and Arduino. V2 is functional, with motors slipping under torque. V3 is in the works and involves a mechanical redesign of the gearboxes to address these issues.</p>
         <p>The ROS2 control system runs on a laptop and handles remote control via RViz. A target pose is created via clicking on a 3D interface, inverse kinematics are solved, and the resulting joint commands are sent over a socket to the Pi, which converts them to motor steps. Future work includes a camera mounted on the rotating wrist section, providing a direct view of the claw for autonomous grasping.</p>
@@ -360,6 +355,23 @@
       <a href="mailto:borni@calpoly.edu">Email</a>
     </div>
   </div>
+
+  <script>
+    // Videos play silently when scrolled into view and pause when they leave.
+    (function () {
+      var videos = document.querySelectorAll('.video-wrap video');
+      videos.forEach(function (v) { v.muted = true; v.loop = true; });
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (!('IntersectionObserver' in window)) return;
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.play().catch(function () {}); }
+          else { e.target.pause(); }
+        });
+      }, { threshold: 0.4 });
+      videos.forEach(function (v) { obs.observe(v); });
+    })();
+  </script>
 
 </body>
 </html>
