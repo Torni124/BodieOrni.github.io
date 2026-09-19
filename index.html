@@ -158,16 +158,18 @@
       </div>
       <div class="status-badge active"><div class="dot"></div> Active</div>
 
-      <!-- VIDEO: drop cycloidal_demo.mp4 next to this file, then delete the placeholder div below and uncomment this block.
       <div class="img-row cols-1">
-        <div class="img-wrap">
-          <video src="cycloidal_demo.mp4" poster="cycloidal_poster.jpg" controls muted loop playsinline></video>
+        <div class="media">
+          <div class="video-wrap">
+            <video controls muted loop playsinline preload="metadata">
+              <source src="CenturyFast.mp4" type="video/mp4" />
+              Your browser can't play this video. <a href="CenturyFast.mp4">Download it instead.</a>
+            </video>
+          </div>
+          <div class="caption">The printed prototype turning — checking backlash and smoothness before committing to machined parts.</div>
         </div>
       </div>
-      -->
-      <div class="img-row cols-1">
-        <div class="img-placeholder"><div class="placeholder-icon">🎞️</div><div class="placeholder-text">Replace with video of the printed prototype running</div></div>
-      </div>
+
       <div class="img-row cols-2">
         <div class="media">
           <div class="frame"><img src="Screenshot%202026-09-16%20220602.png" alt="Cross-section CAD view of the nested two-stage cycloidal gearbox" /></div>
@@ -278,6 +280,19 @@
         </div>
       </div>
       <div class="status-badge wip"><div class="dot"></div> On hold</div>
+
+      <div class="img-row cols-1">
+        <div class="media">
+          <div class="video-wrap">
+            <video controls muted loop playsinline preload="metadata">
+              <source src="ArmSquaer.mp4" type="video/mp4" />
+              Your browser can't play this video. <a href="ArmSquaer.mp4">Download it instead.</a>
+            </video>
+          </div>
+          <div class="caption">V2 running its calibration sequence — each joint driven to a known home position before commands are accepted.</div>
+        </div>
+      </div>
+
       <div class="img-row cols-2">
         <div class="img-placeholder"><div class="placeholder-icon">🦾</div><div class="placeholder-text">Replace with V2 arm photo / CAD</div></div>
         <div class="img-placeholder"><div class="placeholder-icon">🖥️</div><div class="placeholder-text">Replace with ROS diagram or terminal screenshot</div></div>
@@ -289,13 +304,44 @@
       <a class="proj-link" href="https://github.com/Torni124/ARM-V2" target="_blank">github.com/Torni124/ARM-V2 ↗</a>
     </div>
 
+    <!-- 5-BAR LINKAGE -->
+    <div class="project-card">
+      <div class="proj-header">
+        <div>
+          <div class="proj-num">05</div>
+          <div class="proj-title">5-Bar Linkage<br>Drawing Machine</div>
+          <div class="proj-summary">Stepper-driven linkage that turns photos into pen drawings</div>
+        </div>
+        <div class="proj-tags">
+          <span class="tag">Steppers</span><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">Kinematics</span>
+        </div>
+      </div>
+      <div class="status-badge closed"><div class="dot"></div> Closed</div>
+
+      <div class="img-row cols-1">
+        <div class="media">
+          <div class="video-wrap">
+            <video controls muted loop playsinline preload="metadata">
+              <source src="5BarFast.mp4" type="video/mp4" />
+              Your browser can't play this video. <a href="5BarFast.mp4">Download it instead.</a>
+            </video>
+          </div>
+          <div class="caption">Drawing at full speed — the parallel five-bar geometry keeps both motors at the base, so there is very little moving mass to accelerate.</div>
+        </div>
+      </div>
+
+      <div class="proj-body">
+        <p>A pen plotter built as a five-bar parallel linkage rather than a gantry, with both stepper motors fixed at the base and the pen carried at the joint between the two arms. Source photos are reduced to line work with Canny edge detection, and the resulting paths are converted to joint angles through an analytic inverse kinematics solution for the linkage, which is fast enough to run the machine at speed without precomputing the whole drawing.</p>
+      </div>
+      <a class="proj-link" href="https://github.com/Torni124/5-Bar-Linkage-Drawing" target="_blank">github.com/Torni124/5-Bar-Linkage-Drawing ↗</a>
+    </div>
+
   </section>
 
   <!-- SMALLER PROJECTS -->
   <section id="smaller">
     <div class="section-label">Smaller &amp; ongoing experiments</div>
     <div class="mini-grid">
-      <div class="mini-cell"><div class="mini-title">5-Bar Linkage Drawing Machine</div><div class="mini-desc">Stepper-driven linkage that turns photos into pen drawings via Canny edge detection and analytic IK. Closed.</div><a class="mini-link" href="https://github.com/Torni124/5-Bar-Linkage-Drawing" target="_blank">GitHub ↗</a></div>
       <div class="mini-cell"><div class="mini-title">Object Tracking Robot</div><div class="mini-desc">Two-wheeled Pi robot tracking targets by color and contour, no neural networks.</div></div>
       <div class="mini-cell"><div class="mini-title">Quadcopter Flight Controller</div><div class="mini-desc">Custom flight controller built from scratch in Python.</div></div>
       <div class="mini-cell"><div class="mini-title">Capstan Drive</div><div class="mini-desc">Rope-driven capstan transmission mechanism design.</div></div>
