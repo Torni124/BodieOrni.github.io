@@ -73,7 +73,7 @@
     .img-row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
 
     .media { display: flex; flex-direction: column; }
-    .caption { font-size: 13px; line-height: 1.5; color: var(--text-secondary); margin-top: 9px; font-style: italic; }
+    .caption { font-size: 15px; line-height: 1.6; color: var(--text-secondary); margin-top: 9px; font-style: italic; }
 
     /* Fixed-ratio frame: every image in a row renders the same size, centered, nothing cropped. */
     .frame { border: 1px solid var(--border); background: var(--bg-secondary); aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; overflow: hidden; }
@@ -85,9 +85,6 @@
     .video-wrap { border: 1px solid var(--border); background: #000; display: flex; justify-content: center; width: fit-content; max-width: 100%; margin: 0 auto; }
     .video-wrap video { width: auto; height: auto; max-width: 100%; max-height: 520px; display: block; }
 
-    .img-placeholder { border: 1px dashed var(--border-strong); background: var(--bg-secondary); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1rem; text-align: center; min-height: 180px; }
-    .placeholder-icon { font-size: 22px; margin-bottom: 0.5rem; opacity: 0.18; }
-    .placeholder-text { font-size: 10px; color: var(--text-tertiary); letter-spacing: 0.07em; text-transform: uppercase; line-height: 1.6; font-style: italic; }
 
     .mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; border: 1px solid var(--border); overflow: hidden; margin-bottom: 5rem; background: var(--border); }
     .mini-cell { padding: 1.25rem 1rem; background: var(--bg-secondary); transition: background 0.15s; }
@@ -156,7 +153,7 @@
               Your browser can't play this video. <a href="CenturyFast.mp4">Download it instead.</a>
             </video>
           </div>
-          <div class="caption">3D printed proof-of-concept with 100:1 reduction. Each stage is marked with a red line. Output taken from yellow gear.</div>
+          <div class="caption">3D printed proof-of-concept with 100:1 reduction, shown at 4x speed. Each stage is marked with a red line. Output taken from yellow gear.</div>
         </div>
       </div>
 
@@ -239,7 +236,7 @@
       <div class="status-badge wip"><div class="dot"></div> On hold</div>
       <div class="img-row cols-2">
         <div class="media">
-          <div class="img-placeholder"><div class="placeholder-icon">🔩</div><div class="placeholder-text">Replace with physical prototype photo</div></div>
+          <div class="frame"><img src="Actuator.jpg" alt="First version of the rail-mounted linear actuator" /></div>
           <div class="caption">First version of the actuator.</div>
         </div>
       </div>
