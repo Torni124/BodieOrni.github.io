@@ -79,6 +79,7 @@
     .frame { border: 1px solid var(--border); background: var(--bg-secondary); aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; overflow: hidden; }
     .frame img { max-width: 100%; max-height: 100%; width: auto; height: auto; display: block; }
 
+    .img-bare { width: 100%; height: auto; display: block; }
     .img-wrap { overflow: hidden; border: 1px solid var(--border); }
     .img-wrap img { width: 100%; height: auto; display: block; }
 
@@ -236,9 +237,9 @@
         <div class="proj-summary">3D printable linear actuator</div>
       </div>
       <div class="status-badge wip"><div class="dot"></div> On hold</div>
-      <div class="img-row cols-2">
+      <div class="img-row cols-1">
         <div class="media">
-          <div class="frame"><img src="Actuator.jpg" alt="First version of the rail-mounted linear actuator" /></div>
+          <img class="img-bare" src="Actuator.jpg" alt="First version of the rail-mounted linear actuator" />
           <div class="caption">First version of the actuator.</div>
         </div>
       </div>
