@@ -51,12 +51,10 @@
     .projects { margin-bottom: 5rem; }
     .project-card { border-top: 1px solid var(--border); padding: 2.5rem 0; }
     .project-card:last-child { border-bottom: 1px solid var(--border); }
-    .proj-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1.5rem; margin-bottom: 1.25rem; }
+    .proj-header { margin-bottom: 1.25rem; }
     .proj-num { font-size: 11px; color: var(--gold); margin-bottom: 6px; letter-spacing: 0.1em; font-style: italic; }
     .proj-title { font-size: 30px; font-weight: 700; line-height: 1.15; margin-bottom: 0.4rem; }
     .proj-summary { font-size: 13px; color: var(--text-tertiary); font-style: italic; }
-    .proj-tags { display: flex; flex-wrap: wrap; gap: 4px; justify-content: flex-end; flex-shrink: 0; max-width: 190px; }
-    .tag { font-size: 10px; padding: 3px 8px; border: 1px solid var(--border); color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.07em; white-space: nowrap; }
     .proj-body { font-size: 15px; line-height: 1.85; color: var(--text-secondary); margin-bottom: 1.25rem; }
     .proj-body p + p { margin-top: 1rem; }
     .proj-link { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold-border); padding-bottom: 1px; font-style: italic; transition: border-color 0.15s; }
@@ -99,18 +97,15 @@
     .mini-link { display: inline-block; margin-top: 8px; font-size: 11px; color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold-border); font-style: italic; }
     .mini-link:hover { border-color: var(--gold); }
 
-    .contact-strip { padding: 2rem 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-    .contact-line { font-size: 14px; color: var(--text-secondary); font-style: italic; }
+    .contact-strip { padding: 2rem 0; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; align-items: center; }
     .contact-links { display: flex; gap: 1.5rem; }
     .contact-links a { font-size: 12px; color: var(--text-secondary); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.15s; }
     .contact-links a:hover { color: var(--gold); }
 
     @media (max-width: 560px) {
-      .proj-header { flex-direction: column; }
-      .proj-tags { justify-content: flex-start; max-width: 100%; }
       .img-row.cols-2, .img-row.cols-3 { grid-template-columns: 1fr; }
       .mini-grid { grid-template-columns: repeat(2, 1fr); }
-      .contact-strip { flex-direction: column; gap: 1rem; align-items: flex-start; }
+      .contact-strip { justify-content: flex-start; }
     }
   </style>
 </head>
@@ -147,14 +142,9 @@
     <!-- CYCLOIDAL GEARBOX -->
     <div class="project-card">
       <div class="proj-header">
-        <div>
-          <div class="proj-num">01 — 2026</div>
-          <div class="proj-title">100:1 Cycloidal<br>Gearbox</div>
-          <div class="proj-summary">Nested two-stage reducer built for an extremely thin package, plus the analysis tools behind it</div>
-        </div>
-        <div class="proj-tags">
-          <span class="tag">SolidWorks</span><span class="tag">MATLAB</span><span class="tag">GD&amp;T</span><span class="tag">Monte Carlo</span><span class="tag">3D Print</span>
-        </div>
+        <div class="proj-num">01</div>
+        <div class="proj-title">Custom Nested<br>Cycloidal Gearbox</div>
+        <div class="proj-summary">Nested two-stage reducer designed for an extremely thin profile, plus associated analysis tools</div>
       </div>
       <div class="status-badge active"><div class="dot"></div> Active</div>
 
@@ -166,38 +156,38 @@
               Your browser can't play this video. <a href="CenturyFast.mp4">Download it instead.</a>
             </video>
           </div>
-          <div class="caption">The printed prototype turning — checking backlash and smoothness before committing to machined parts.</div>
+          <div class="caption">3D printed proof-of-concept with 100:1 reduction. Each stage is marked with a red line. Output taken from yellow gear.</div>
         </div>
       </div>
 
       <div class="img-row cols-2">
         <div class="media">
           <div class="frame"><img src="Screenshot%202026-09-16%20220602.png" alt="Cross-section CAD view of the nested two-stage cycloidal gearbox" /></div>
-          <div class="caption">Cross-section of the assembly — the ball reducer stage nested inside the cycloidal stage.</div>
+          <div class="caption">Cross-section of the assembly, note the ball reducer style first stage nested inside a standard cycloidal stage.</div>
         </div>
         <div class="media">
           <div class="frame"><img src="Screenshot%202026-09-16%20221302.png" alt="Cycloid profile generator output" /></div>
-          <div class="caption">Profile generator output for a given set of dimensional inputs.</div>
+          <div class="caption">Cycloidal Profile generator output for a given set of dimensional inputs. Script also generates equation for cycloidal profile.</div>
         </div>
       </div>
 
       <div class="proj-body">
-        <p>A 100:1 speed reducer in two stages, nested inside one another rather than stacked end to end, which is what keeps the package extremely thin. The inner stage is a cycloidal ball reducer running 11 balls in a cage against a 10-wave raceway; the outer stage is a standard cycloidal disc with 11 ring pins on 10 lobes. Both run single-lobe eccentric wave generators, so each stage reduces 10:1 and the pair compounds to 100:1. High reduction, low backlash, and minimum axial thickness were the design constraints, in that order. A 3D printed prototype was built to check assembly, backlash, and motion before committing to machined parts.</p>
+        <p>Nested two-stage cycloidal gearbox, using a cycloidal ball reducer as the first stage and a standard cycloidal drive as the second stage. Designed to minimize gearbox thickness by nesting the stages. In the proof-of-concept (first video) each stage provides a 10:1 reduction, compounding to 100:1. Currently work is being done to design a manufacturable metal version with a much smaller footprint. This involves rework of essentially every component along with tolerance calculation &amp; analysis.</p>
       </div>
 
       <div class="img-row cols-2">
         <div class="media">
           <div class="frame"><img src="Screenshot%202026-09-16%20221358.png" alt="Monte Carlo backlash distribution for the gearbox tolerance stack" /></div>
-          <div class="caption">Monte Carlo backlash distribution across the full tolerance stack.</div>
+          <div class="caption">Statistical Tolerance Analysis (Monte Carlo) for effects on backlash.</div>
         </div>
         <div class="media">
           <div class="frame"><img src="Screenshot%202026-09-16%20221411.png" alt="Tolerance contribution by dimension" /></div>
-          <div class="caption">Each dimension's share of the total stack, used to decide where tight tolerances are worth the cost.</div>
+          <div class="caption">Analysis of the effect of the tolerance of each component on backlash.</div>
         </div>
       </div>
 
       <div class="proj-body">
-        <p><strong style="font-weight:500;">Cycloid analysis toolset</strong> — A set of MATLAB and Excel tools written to support the design. Profile generation takes dimensional specs and produces the cycloid geometry for CAD import, including the inverted configuration where the outer ring is the output. A separate script checks whether a given ball count aliases the raceway wave count down to the cam lobe count, which is what makes a ball reducer ratio valid rather than a jam. Tolerance stacks are run as a Monte Carlo simulation in MATLAB and cross-checked against an independent Excel implementation, so a stack-up result has to survive two different models before it drives a dimension.</p>
+        <p><strong style="font-weight:500;">Cycloid analysis toolset</strong> — This project also involves a set of MATLAB and Excel tools written to support the design. Profile generation scripts take dimensional specs and produce parametric equations of the cycloid geometry along with a visualization. Tolerance analysis is run with a Monte Carlo simulation in MATLAB and cross-checked against an independent Excel model, the Excel model will hopefully be depreciated once both models are proven consistent across a variety of input.</p>
       </div>
       <!-- Add repo link(s) here if the toolset gets its own repo:
       <div class="proj-links">
@@ -209,16 +199,11 @@
     <!-- FOOTPATH DETECTION -->
     <div class="project-card">
       <div class="proj-header">
-        <div>
-          <div class="proj-num">02 — 20XX</div>
-          <div class="proj-title">Footpath Detection<br>Vision Model</div>
-          <div class="proj-summary">Semantic segmentation for autonomous trail navigation</div>
-        </div>
-        <div class="proj-tags">
-          <span class="tag">PyTorch</span><span class="tag">Segmentation</span><span class="tag">Python</span><span class="tag">CV</span>
-        </div>
+        <div class="proj-num">02</div>
+        <div class="proj-title">Footpath Detection<br>Vision Model</div>
+        <div class="proj-summary">Segmentation model for autonomous trail navigation</div>
       </div>
-      <div class="status-badge closed"><div class="dot"></div> Closed</div>
+      <div class="status-badge wip"><div class="dot"></div> On hold</div>
 
       <div class="img-row cols-1">
         <div class="media">
@@ -229,7 +214,7 @@
               Your browser can't play this video. <a href="IMG_7550.mov">Download it instead.</a>
             </video>
           </div>
-          <div class="caption">Test run of the drone the model was built for.</div>
+          <div class="caption">Simulated test run of preliminary flight control software on one of my datasets.</div>
         </div>
       </div>
 
@@ -239,46 +224,38 @@
         <div class="img-wrap"><img src="002_IMG_7010_triptych.png" alt="Trail segmentation output" /></div>
       </div>
       <div class="proj-body">
-        <p>A segmentation system for identifying trails in natural environments, built with my own dataset of 450+ images. The architecture uses a lightweight classifier to select between specialized segmentation models trained on different trail types, currently two models covering forest and dirt trails, with more planned. This better handles variation across different environments and allows for lighter-weight models.</p>
-        <p>Intended for deployment on a Raspberry Pi 5 with an accelerator shield, interfacing with a PX4 flight controller for autonomous trail navigation, currently only a design goal due to cost. A Discord bot is set up for running quick segmentation tests from my phone camera.</p>
+        <p>A segmentation system for identifying trails in natural environments, built with my own datasets, collectively over 450 images. The architecture uses a lightweight classifier model to select between more specialized segmentation models trained on different trail types, currently two models covering forest and dirt trails exist. This was intended to better handle variation across different environments and allow for lighter models.</p>
+        <p>Intended for deployment on a Raspberry Pi 5 with an accelerator shield, interfacing with a PX4 flight controller. A test bench drone was constructed along with a basic flight controller program, a run of the laptop side of this program is shown in the above video. Camera data was sent to my laptop via Wi-Fi where the model was run to avoid purchase of a onboard computer. Currently on hold due to component costs.</p>
       </div>
-      <a class="proj-link" href="https://github.com/Torni124/PathModelTrainer" target="_blank">github.com/Torni124/PathModelTrainer ↗</a>
     </div>
 
     <!-- LINEAR ACTUATOR -->
     <div class="project-card">
       <div class="proj-header">
-        <div>
-          <div class="proj-num">03 — 20XX</div>
-          <div class="proj-title">3D Printed<br>Linear Actuator</div>
-          <div class="proj-summary">Custom mechanical actuator design</div>
-        </div>
-        <div class="proj-tags">
-          <span class="tag">Mechanical</span><span class="tag">CAD</span><span class="tag">3D Print</span>
-        </div>
+        <div class="proj-num">03</div>
+        <div class="proj-title">Rail Mounted<br>Linear Actuator</div>
+        <div class="proj-summary">3D printable linear actuator</div>
       </div>
       <div class="status-badge wip"><div class="dot"></div> On hold</div>
       <div class="img-row cols-2">
-        <div class="img-placeholder"><div class="placeholder-icon">🔩</div><div class="placeholder-text">Replace with physical prototype photo</div></div>
+        <div class="media">
+          <div class="img-placeholder"><div class="placeholder-icon">🔩</div><div class="placeholder-text">Replace with physical prototype photo</div></div>
+          <div class="caption">First version of the actuator.</div>
+        </div>
       </div>
       <div class="proj-body">
-        <p>A low-cost, mostly 3D printed linear actuator designed to be rail-mounted and produced in quantity. Started working on this out of a need for a large number of actuators for another project, cost minimization, and ease of manufacturing were the primary design goals. Built around a NEMA 17 stepper motor for prototyping, with a planned switch to a DC servo motor for higher torque at speed.</p>
+        <p>Designed for a friend's planned Open Sauce project, intended to be rail mountable and easy and cheap to manufacture. Currently built around a NEMA 17 stepper, initial concept used a brushed DC motor with limit switches. Mounts to aluminum extrusions for modularity, designed for a minimum of 7" of travel. This variation is geared to increase actuator speed at the cost of some torque.</p>
       </div>
     </div>
 
     <!-- ROBOTIC ARM -->
     <div class="project-card">
       <div class="proj-header">
-        <div>
-          <div class="proj-num">04 — 20XX</div>
-          <div class="proj-title">5-DOF Robotic Arm</div>
-          <div class="proj-summary">Custom ROS2 control system — V2 active</div>
-        </div>
-        <div class="proj-tags">
-          <span class="tag">ROS2</span><span class="tag">Python</span><span class="tag">Raspberry Pi</span><span class="tag">IK</span>
-        </div>
+        <div class="proj-num">04</div>
+        <div class="proj-title">5-DOF Robotic Arm<br>Control System</div>
+        <div class="proj-summary">Custom ROS2 control system</div>
       </div>
-      <div class="status-badge wip"><div class="dot"></div> On hold</div>
+      <div class="status-badge closed"><div class="dot"></div> Closed</div>
 
       <div class="img-row cols-1">
         <div class="media">
@@ -288,13 +265,13 @@
               Your browser can't play this video. <a href="ArmSquaer.mp4">Download it instead.</a>
             </video>
           </div>
-          <div class="caption">V2 running its calibration sequence — each joint driven to a known home position before commands are accepted.</div>
+          <div class="caption">V2 running a test sequence, end effector is shown drawing a square. Some of the hardware repeatability issues are visible here.</div>
         </div>
       </div>
 
       <div class="proj-body">
-        <p>A 5-DOF robotic arm built on the open-source Kadua arm design, driven by stepper motors with planetary gearboxes and controlled via a Raspberry Pi and Arduino. V2 is functional, with motors slipping under torque. V3 is in the works and involves a mechanical redesign of the gearboxes to address these issues.</p>
-        <p>The ROS2 control system runs on a laptop and handles remote control via RViz. A target pose is created via clicking on a 3D interface, inverse kinematics are solved, and the resulting joint commands are sent over a socket to the Pi, which converts them to motor steps. Future work includes a camera mounted on the rotating wrist section, providing a direct view of the claw for autonomous grasping.</p>
+        <p>The arm itself is built on the open-source Kadua arm design, driven by stepper motors with planetary gearboxes and controlled via a Raspberry Pi and Arduino. Modifications were made to prevent the occasional gearbox slipping under loads.</p>
+        <p>The ROS2 control system is my own, allowing control of the arm via end effector location targets. These targets can be input via coordinates or mouse input in a 3D simulation (RViz). Once a target is given, an inverse kinematic solver produces joint angles which are sent to the arm hardware. The ROS2 system runs on my laptop, which communicates with the arm via a socket connection to an onboard Raspberry Pi.</p>
       </div>
       <a class="proj-link" href="https://github.com/Torni124/ARM-V2" target="_blank">github.com/Torni124/ARM-V2 ↗</a>
     </div>
@@ -302,14 +279,9 @@
     <!-- 5-BAR LINKAGE -->
     <div class="project-card">
       <div class="proj-header">
-        <div>
-          <div class="proj-num">05 — 20XX</div>
-          <div class="proj-title">5-Bar Linkage<br>Drawing Machine</div>
-          <div class="proj-summary">Stepper-driven linkage that turns photos into pen drawings</div>
-        </div>
-        <div class="proj-tags">
-          <span class="tag">Steppers</span><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">Kinematics</span>
-        </div>
+        <div class="proj-num">05</div>
+        <div class="proj-title">5-Bar Linkage<br>Drawing Machine</div>
+        <div class="proj-summary">5-bar linkage to turn photos into pen drawings</div>
       </div>
       <div class="status-badge closed"><div class="dot"></div> Closed</div>
 
@@ -321,12 +293,12 @@
               Your browser can't play this video. <a href="5BarFast.mp4">Download it instead.</a>
             </video>
           </div>
-          <div class="caption">Drawing at full speed — the parallel five-bar geometry keeps both motors at the base, so there is very little moving mass to accelerate.</div>
+          <div class="caption">First successful drawing.</div>
         </div>
       </div>
 
       <div class="proj-body">
-        <p>A pen plotter built as a five-bar parallel linkage rather than a gantry, with both stepper motors fixed at the base and the pen carried at the joint between the two arms. Source photos are reduced to line work with Canny edge detection, and the resulting paths are converted to joint angles through an analytic inverse kinematics solution for the linkage, which is fast enough to run the machine at speed without precomputing the whole drawing.</p>
+        <p>A pen plotter built using a five-bar linkage. Source photos are reduced to a series of splines via Canny edge detection, and the resulting paths are converted to joint angles through an inverse kinematic solver.</p>
       </div>
       <a class="proj-link" href="https://github.com/Torni124/5-Bar-Linkage-Drawing" target="_blank">github.com/Torni124/5-Bar-Linkage-Drawing ↗</a>
     </div>
@@ -335,9 +307,9 @@
 
   <!-- SMALLER PROJECTS -->
   <section id="smaller">
-    <div class="section-label">Smaller &amp; ongoing experiments</div>
+    <div class="section-label">Smaller or Abandoned Projects</div>
     <div class="mini-grid">
-      <div class="mini-cell"><div class="mini-title">Object Tracking Robot</div><div class="mini-desc">Two-wheeled Pi robot tracking targets by color and contour, no neural networks.</div></div>
+      <div class="mini-cell"><div class="mini-title">Soccer Ball Tracking Robot</div><div class="mini-desc">Two-wheeled Pi robot tracking targets by color and contour, no neural networks.</div></div>
       <div class="mini-cell"><div class="mini-title">Quadcopter Flight Controller</div><div class="mini-desc">Custom flight controller built from scratch in Python.</div></div>
       <div class="mini-cell"><div class="mini-title">Capstan Drive</div><div class="mini-desc">Rope-driven capstan transmission mechanism design.</div></div>
       <div class="mini-cell"><div class="mini-title">Vacuum Tube Tesla Coil</div><div class="mini-desc">High frequency resonant transformer using vacuum tubes.</div></div>
@@ -348,7 +320,6 @@
 
   <!-- CONTACT -->
   <div class="contact-strip" id="contact">
-    <span class="contact-line">Open to opportunities &amp; collaborations.</span>
     <div class="contact-links">
       <a href="https://github.com/Torni124" target="_blank">GitHub</a>
       <a href="https://www.linkedin.com/in/bodie-orni/" target="_blank">LinkedIn</a>
