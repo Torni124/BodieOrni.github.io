@@ -1,18 +1,354 @@
-:root {
-  --bg: #1a1f1b;
-  --bg-secondary: #222823;
-  --bg-tertiary: #2a312b;
-  --text: #e9ecdf;
-  --text-secondary: #aab39c;
-  --text-tertiary: #717a66;
-  --gold: #c98a5a;
-  --gold-dim: rgba(201,138,90,0.15);
-  --gold-border: rgba(201,138,90,0.35);
-  --gold-hover: rgba(201,138,90,0.25);
-  --border: rgba(233,236,223,0.1);
-  --border-strong: rgba(233,236,223,0.22);
-  --faint: rgba(233,236,223,0.04);
-  --active: #9cc97a;
-  --active-bg: rgba(156,201,122,0.07);
-  --active-border: rgba(156,201,122,0.3);
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bodie Orni — Engineering Portfolio</title>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #1a1f1b;
+      --bg-secondary: #222823;
+      --bg-tertiary: #2a312b;
+      --text: #e9ecdf;
+      --text-secondary: #aab39c;
+      --text-tertiary: #717a66;
+      --gold: #c98a5a;
+      --gold-dim: rgba(201,138,90,0.15);
+      --gold-border: rgba(201,138,90,0.35);
+      --gold-hover: rgba(201,138,90,0.25);
+      --border: rgba(233,236,223,0.1);
+      --border-strong: rgba(233,236,223,0.22);
+      --faint: rgba(233,236,223,0.04);
+      --active: #9cc97a;
+      --active-bg: rgba(156,201,122,0.07);
+      --active-border: rgba(156,201,122,0.3);
+    }
+
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      background: var(--bg);
+      color: var(--text);
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.75rem 0; border-bottom: 1px solid var(--border); margin-bottom: 3.5rem; }
+    .nav-name { font-size: 15px; font-weight: 700; font-style: italic; color: var(--text); text-decoration: none; letter-spacing: 0.02em; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 12px; color: var(--text-secondary); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--gold); }
+
+    .hero { margin-bottom: 5rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border); }
+    .hero-name { font-size: 48px; font-weight: 700; line-height: 1.05; margin-bottom: 1.5rem; letter-spacing: -0.01em; }
+    .hero-bio { font-size: 16px; line-height: 1.85; color: var(--text-secondary); max-width: 580px; margin-bottom: 1.25rem; }
+    .hero-meta { font-size: 13px; color: var(--text-tertiary); margin-bottom: 2rem; font-style: italic; }
+    .hero-meta span { margin-right: 1.5rem; }
+    .hero-ctas { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .hero-cta { display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px; border: 1px solid var(--gold-border); font-size: 13px; text-decoration: none; color: var(--gold); background: var(--gold-dim); transition: background 0.15s, border-color 0.15s; letter-spacing: 0.04em; font-style: italic; }
+    .hero-cta:hover { background: var(--gold-hover); border-color: var(--gold); }
+
+    .section-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+
+    .projects { margin-bottom: 5rem; }
+    .project-card { border-top: 1px solid var(--border); padding: 2.5rem 0; }
+    .project-card:last-child { border-bottom: 1px solid var(--border); }
+    .proj-header { margin-bottom: 1.25rem; }
+    .proj-num { font-size: 11px; color: var(--gold); margin-bottom: 6px; letter-spacing: 0.1em; font-style: italic; }
+    .proj-title { font-size: 30px; font-weight: 700; line-height: 1.15; margin-bottom: 0.4rem; }
+    .proj-summary { font-size: 13px; color: var(--text-tertiary); font-style: italic; }
+    .proj-body { font-size: 15px; line-height: 1.85; color: var(--text-secondary); margin-bottom: 1.25rem; }
+    .proj-body p + p { margin-top: 1rem; }
+    .proj-link { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold-border); padding-bottom: 1px; font-style: italic; transition: border-color 0.15s; }
+    .proj-link:hover { border-color: var(--gold); }
+    .proj-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+    .status-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; padding: 3px 10px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem; font-style: italic; }
+    .status-badge.active { border: 1px solid var(--active-border); color: var(--active); background: var(--active-bg); }
+    .status-badge.wip { border: 1px solid var(--gold-border); color: var(--gold); background: var(--gold-dim); }
+    .status-badge.closed { border: 1px solid var(--border-strong); color: var(--text-tertiary); background: var(--faint); }
+    .dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+
+    .img-row { display: grid; gap: 14px; margin: 1.5rem 0; align-items: start; }
+    .img-row.cols-1 { grid-template-columns: 1fr; }
+    .img-row.cols-2 { grid-template-columns: 1fr 1fr; }
+    .img-row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+    .media { display: flex; flex-direction: column; }
+    .caption { font-size: 15px; line-height: 1.6; color: var(--text-secondary); margin-top: 9px; font-style: italic; }
+
+    /* Fixed-ratio frame: every image in a row renders the same size, centered, nothing cropped. */
+    .frame { border: 1px solid var(--border); background: var(--bg-secondary); aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .frame img { max-width: 100%; max-height: 100%; width: auto; height: auto; display: block; }
+
+    .img-bare { width: 100%; height: auto; display: block; }
+    .img-wrap { overflow: hidden; border: 1px solid var(--border); }
+    .img-wrap img { width: 100%; height: auto; display: block; }
+
+    .video-wrap { border: 1px solid var(--border); background: #000; display: flex; justify-content: center; width: fit-content; max-width: 100%; margin: 0 auto; }
+    .video-wrap video { width: auto; height: auto; max-width: 100%; max-height: 520px; display: block; }
+
+
+    .mini-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; border: 1px solid var(--border); overflow: hidden; margin-bottom: 5rem; background: var(--border); }
+    .mini-cell { padding: 1.25rem 1rem; background: var(--bg-secondary); transition: background 0.15s; }
+    .mini-cell:hover { background: var(--bg-tertiary); }
+    .mini-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+    .mini-desc { font-size: 12px; color: var(--text-tertiary); line-height: 1.5; font-style: italic; }
+    .mini-link { display: inline-block; margin-top: 8px; font-size: 11px; color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold-border); font-style: italic; }
+    .mini-link:hover { border-color: var(--gold); }
+
+    .contact-strip { padding: 2rem 0; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; align-items: center; }
+    .site-note { font-size: 12px; line-height: 1.6; color: var(--text-tertiary); font-style: italic; margin-top: 1.25rem; }
+    .contact-links { display: flex; gap: 1.5rem; }
+    .contact-links a { font-size: 12px; color: var(--text-secondary); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.15s; }
+    .contact-links a:hover { color: var(--gold); }
+
+    @media (max-width: 560px) {
+      .img-row.cols-2, .img-row.cols-3 { grid-template-columns: 1fr; }
+      .mini-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-strip { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-name" href="#">Bodie Orni</a>
+    <ul class="nav-links">
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#smaller">More</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1 class="hero-name">Bodie Orni</h1>
+    <p class="hero-bio">Mechanical engineering student with a focus on robotics and controls. I enjoy working on most aspects of robotics projects, including mechanical design/analysis and writing software. Started building robots in my basement before college, which is where I picked up ROS. Currently working in ROS2, Python, SolidWorks, and MATLAB.</p>
+    <p class="hero-meta">
+      <span>Cal Poly SLO — B.S. Mechanical Engineering</span>
+      <span>Expected June 2028</span>
+    </p>
+    <div class="hero-ctas">
+      <a class="hero-cta" href="mailto:borni@calpoly.edu">borni@calpoly.edu →</a>
+      <a class="hero-cta" href="https://github.com/Torni124" target="_blank">GitHub →</a>
+      <a class="hero-cta" href="https://www.linkedin.com/in/bodie-orni/" target="_blank">LinkedIn →</a>
+    </div>
+    <p class="site-note">Page built with AI assistance.</p>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects" id="projects">
+    <div class="section-label">Selected projects</div>
+
+    <!-- CYCLOIDAL GEARBOX -->
+    <div class="project-card">
+      <div class="proj-header">
+        <div class="proj-num">01</div>
+        <div class="proj-title">Custom Nested<br>Cycloidal Gearbox</div>
+        <div class="proj-summary">Nested two-stage reducer designed for an extremely thin profile, plus associated analysis tools</div>
+      </div>
+      <div class="status-badge active"><div class="dot"></div> Active</div>
+
+      <div class="img-row cols-1">
+        <div class="media">
+          <div class="video-wrap">
+            <video controls muted loop playsinline preload="metadata">
+              <source src="CenturyFast.mp4" type="video/mp4" />
+              Your browser can't play this video. <a href="CenturyFast.mp4">Download it instead.</a>
+            </video>
+          </div>
+          <div class="caption">3D printed proof-of-concept with 100:1 reduction, shown at 4x speed. Each stage is marked with a red line. Output taken from yellow gear.</div>
+        </div>
+      </div>
+
+      <div class="img-row cols-2">
+        <div class="media">
+          <div class="frame"><img src="Screenshot%202026-09-16%20220602.png" alt="Cross-section CAD view of the nested two-stage cycloidal gearbox" /></div>
+          <div class="caption">Cross-section of the assembly, note the ball reducer style first stage nested inside a standard cycloidal stage.</div>
+        </div>
+        <div class="media">
+          <div class="frame"><img src="Screenshot%202026-09-16%20221302.png" alt="Cycloid profile generator output" /></div>
+          <div class="caption">Cycloidal Profile generator output for a given set of dimensional inputs. Script also generates equation for cycloidal profile.</div>
+        </div>
+      </div>
+
+      <div class="proj-body">
+        <p>Nested two-stage cycloidal gearbox, using a cycloidal ball reducer as the first stage and a standard cycloidal drive as the second stage. Designed to minimize gearbox thickness by nesting the stages. In the proof-of-concept (first video) each stage provides a 10:1 reduction, compounding to 100:1. Currently work is being done to design a manufacturable metal version with a much smaller footprint. This involves rework of essentially every component along with tolerance calculation &amp; analysis.</p>
+      </div>
+
+      <div class="img-row cols-2">
+        <div class="media">
+          <div class="frame"><img src="Screenshot%202026-09-16%20221358.png" alt="Monte Carlo backlash distribution for the gearbox tolerance stack" /></div>
+          <div class="caption">Statistical Tolerance Analysis (Monte Carlo) for effects on backlash.</div>
+        </div>
+        <div class="media">
+          <div class="frame"><img src="Screenshot%202026-09-16%20221411.png" alt="Tolerance contribution by dimension" /></div>
+          <div class="caption">Analysis of the effect of the tolerance of each component on backlash.</div>
+        </div>
+      </div>
+
+      <div class="proj-body">
+        <p><strong style="font-weight:500;">Cycloid analysis toolset</strong> — This project also involves a set of MATLAB and Excel tools written to support the design. Profile generation scripts take dimensional specs and produce parametric equations of the cycloid geometry along with a visualization. Tolerance analysis is run with a Monte Carlo simulation in MATLAB and cross-checked against an independent Excel model; the Excel model will hopefully be deprecated once both models are proven consistent across a variety of inputs.</p>
+      </div>
+      <!-- Add repo link(s) here if the toolset gets its own repo:
+      <div class="proj-links">
+        <a class="proj-link" href="#" target="_blank">github.com/Torni124/... ↗</a>
+      </div>
+      -->
+    </div>
+
+    <!-- FOOTPATH DETECTION -->
+    <div class="project-card">
+      <div class="proj-header">
+        <div class="proj-num">02</div>
+        <div class="proj-title">Footpath Detection<br>Vision Model</div>
+        <div class="proj-summary">Segmentation model for autonomous trail navigation</div>
+      </div>
+      <div class="status-badge wip"><div class="dot"></div> On hold</div>
+
+      <div class="img-row cols-1">
+        <div class="media">
+          <div class="video-wrap">
+            <video controls muted loop playsinline preload="metadata">
+              <source src="IMG_7550.mp4" type="video/mp4" />
+              <source src="IMG_7550.mov" type="video/quicktime" />
+              Your browser can't play this video. <a href="IMG_7550.mov">Download it instead.</a>
+            </video>
+          </div>
+          <div class="caption">Simulated test run of preliminary flight control software on one of my datasets.</div>
+        </div>
+      </div>
+
+      <div class="img-row cols-1">
+        <div class="img-wrap"><img src="000_IMG_6878_triptych.png" alt="Trail segmentation output" /></div>
+        <div class="img-wrap"><img src="001_IMG_6520_triptych.png" alt="Trail segmentation output" /></div>
+        <div class="img-wrap"><img src="002_IMG_7010_triptych.png" alt="Trail segmentation output" /></div>
+      </div>
+      <div class="proj-body">
+        <p>A segmentation system for identifying trails in natural environments, built with my own datasets, collectively over 450 images. The architecture uses a lightweight classifier model to select between more specialized segmentation models trained on different trail types, currently two models covering forest and dirt trails exist. This was intended to better handle variation across different environments and allow for lighter models.</p>
+        <p>Intended for deployment on a Raspberry Pi 5 with an accelerator shield, interfacing with a PX4 flight controller. A test bench drone was constructed along with a basic flight controller program, a run of the laptop side of this program is shown in the above video. Camera data was sent to my laptop via Wi-Fi where the model was run to avoid purchase of an onboard computer. Currently on hold due to component costs.</p>
+      </div>
+    </div>
+
+    <!-- LINEAR ACTUATOR -->
+    <div class="project-card">
+      <div class="proj-header">
+        <div class="proj-num">03</div>
+        <div class="proj-title">Rail Mounted<br>Linear Actuator</div>
+        <div class="proj-summary">3D printable linear actuator</div>
+      </div>
+      <div class="status-badge wip"><div class="dot"></div> On hold</div>
+      <div class="img-row cols-1">
+        <div class="media">
+          <img class="img-bare" src="Actuator.jpg" alt="First version of the rail-mounted linear actuator" />
+          <div class="caption">First version of the actuator.</div>
+        </div>
+      </div>
+      <div class="proj-body">
+        <p>Designed for a friend's planned Open Sauce project, intended to be rail mountable and easy and cheap to manufacture. Currently built around a NEMA 17 stepper, initial concept used a brushed DC motor with limit switches. Mounts to aluminum extrusions for modularity, designed for a minimum of 7" of travel. This variation is geared to increase actuator speed at the cost of some torque.</p>
+      </div>
+    </div>
+
+    <!-- ROBOTIC ARM -->
+    <div class="project-card">
+      <div class="proj-header">
+        <div class="proj-num">04</div>
+        <div class="proj-title">5-DOF Robotic Arm<br>Control System</div>
+        <div class="proj-summary">Custom ROS2 control system</div>
+      </div>
+      <div class="status-badge closed"><div class="dot"></div> Closed</div>
+
+      <div class="img-row cols-1">
+        <div class="media">
+          <div class="video-wrap">
+            <video controls muted loop playsinline preload="metadata">
+              <source src="ArmSquaer.mp4" type="video/mp4" />
+              Your browser can't play this video. <a href="ArmSquaer.mp4">Download it instead.</a>
+            </video>
+          </div>
+          <div class="caption">V2 running a test sequence, end effector is shown drawing a square. Some of the hardware repeatability issues are visible here.</div>
+        </div>
+      </div>
+
+      <div class="proj-body">
+        <p>The arm itself is built on the open-source Kadua arm design, driven by stepper motors with planetary gearboxes and controlled via a Raspberry Pi and Arduino. Modifications were made to prevent the occasional gearbox slipping under loads.</p>
+        <p>The ROS2 control system is my own, allowing control of the arm via end effector location targets. These targets can be input via coordinates or mouse input in a 3D simulation (RViz). Once a target is given, an inverse kinematic solver produces joint angles which are sent to the arm hardware. The ROS2 system runs on my laptop, which communicates with the arm via a socket connection to an onboard Raspberry Pi.</p>
+      </div>
+      <a class="proj-link" href="https://github.com/Torni124/ARM-V2" target="_blank">github.com/Torni124/ARM-V2 ↗</a>
+    </div>
+
+    <!-- 5-BAR LINKAGE -->
+    <div class="project-card">
+      <div class="proj-header">
+        <div class="proj-num">05</div>
+        <div class="proj-title">5-Bar Linkage<br>Drawing Machine</div>
+        <div class="proj-summary">5-bar linkage to turn photos into pen drawings</div>
+      </div>
+      <div class="status-badge closed"><div class="dot"></div> Closed</div>
+
+      <div class="img-row cols-1">
+        <div class="media">
+          <div class="video-wrap">
+            <video controls muted loop playsinline preload="metadata">
+              <source src="5BarFast.mp4" type="video/mp4" />
+              Your browser can't play this video. <a href="5BarFast.mp4">Download it instead.</a>
+            </video>
+          </div>
+          <div class="caption">First successful drawing.</div>
+        </div>
+      </div>
+
+      <div class="proj-body">
+        <p>A pen plotter built using a five-bar linkage. Source photos are reduced to a series of splines via Canny edge detection, and the resulting paths are converted to joint angles through an inverse kinematic solver.</p>
+      </div>
+      <a class="proj-link" href="https://github.com/Torni124/5-Bar-Linkage-Drawing" target="_blank">github.com/Torni124/5-Bar-Linkage-Drawing ↗</a>
+    </div>
+
+  </section>
+
+  <!-- SMALLER PROJECTS -->
+  <section id="smaller">
+    <div class="section-label">Smaller or Abandoned Projects</div>
+    <div class="mini-grid">
+      <div class="mini-cell"><div class="mini-title">Soccer Ball Tracking Robot</div><div class="mini-desc">Two-wheeled Pi robot tracking targets by color and contour, no neural networks.</div></div>
+      <div class="mini-cell"><div class="mini-title">Quadcopter Flight Controller</div><div class="mini-desc">Custom flight controller built from scratch in Python.</div></div>
+      <div class="mini-cell"><div class="mini-title">Capstan Drive</div><div class="mini-desc">Rope-driven capstan transmission mechanism design.</div></div>
+      <div class="mini-cell"><div class="mini-title">Vacuum Tube Tesla Coil</div><div class="mini-desc">High frequency resonant transformer using vacuum tubes.</div></div>
+      <div class="mini-cell"><div class="mini-title">High Voltage Capacitors</div><div class="mini-desc">High voltage capacitor charging and discharge experiments.</div></div>
+      <div class="mini-cell"><div class="mini-title">Trebuchets</div><div class="mini-desc">Various designs explored and built across multiple iterations.</div></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <div class="contact-strip" id="contact">
+    <div class="contact-links">
+      <a href="https://github.com/Torni124" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/bodie-orni/" target="_blank">LinkedIn</a>
+      <a href="mailto:borni@calpoly.edu">Email</a>
+    </div>
+  </div>
+
+
+  <script>
+    // Videos play silently when scrolled into view and pause when they leave.
+    (function () {
+      var videos = document.querySelectorAll('.video-wrap video');
+      videos.forEach(function (v) { v.muted = true; v.loop = true; });
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (!('IntersectionObserver' in window)) return;
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.play().catch(function () {}); }
+          else { e.target.pause(); }
+        });
+      }, { threshold: 0.4 });
+      videos.forEach(function (v) { obs.observe(v); });
+    })();
+  </script>
+
+</body>
+</html>
