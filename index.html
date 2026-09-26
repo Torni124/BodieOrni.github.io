@@ -83,6 +83,7 @@
     /* Fixed-ratio frame: every image in a row renders the same size, centered, nothing cropped. */
     .frame { border: 1px solid var(--border); background: var(--bg-secondary); aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; overflow: hidden; }
     .frame img { max-width: 100%; max-height: 100%; width: auto; height: auto; display: block; }
+    .frame.flush { border: none; background: transparent; }
 
     .img-bare { width: 100%; height: auto; display: block; }
     .img-wrap { overflow: hidden; border: 1px solid var(--border); }
@@ -167,11 +168,11 @@
 
       <div class="img-row cols-2">
         <div class="media">
-          <div class="frame"><img src="Screenshot%202026-09-16%20220602.png" alt="Cross-section CAD view of the nested two-stage cycloidal gearbox" /></div>
+          <div class="frame flush"><img src="Screenshot%202026-09-16%20220602.png" alt="Cross-section CAD view of the nested two-stage cycloidal gearbox" /></div>
           <div class="caption">Cross-section of the assembly, note the ball reducer style first stage nested inside a standard cycloidal stage.</div>
         </div>
         <div class="media">
-          <div class="frame"><img src="Screenshot%202026-09-16%20221302.png" alt="Cycloid profile generator output" /></div>
+          <div class="frame flush"><img src="Screenshot%202026-09-16%20221302.png" alt="Cycloid profile generator output" /></div>
           <div class="caption">Cycloidal Profile generator output for a given set of dimensional inputs. Script also generates equation for cycloidal profile.</div>
         </div>
       </div>
